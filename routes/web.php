@@ -28,3 +28,6 @@ Route::get('/contact', function () {
 Route::get('/booking', function () {
     return view('layouts/booking');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
