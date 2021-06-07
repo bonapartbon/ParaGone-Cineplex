@@ -6,7 +6,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="/"><img src="img/paragone-logo.png" width="15%"> </a>
+      <a class="navbar-brand text-brand" href="/"><img src="{{asset('img/paragone-logo.png')}}" width="15%"> </a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
@@ -16,20 +16,44 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href=showtimes>Showtimes</a>
+            <a class="nav-link " href="{{url('showtimes')}}">Showtimes</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="contact">Contact</a>
+            <a class="nav-link " href="{{url('contact')}}">Contact</a>
+          </li>
+          @guest
+          @if (Route::has('login'))
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li>
+          @endif
+
+          @if (Route::has('register'))
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          </li>
+          @endif
+          @else
+
+          <li class="nav-item dropdown">
+          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }}
+          </a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+            </a>
+            </div>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link " href="login">Login</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </div>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link " href="register">Register</a>
-          </li>
+          @endguest
           
         </ul>
       </div>

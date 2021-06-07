@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +27,10 @@ Route::get('/contact', function () {
 Route::get('/booking', function () {
     return view('layouts/booking');
 });
-Auth::routes();
+
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Verify Register Route
+

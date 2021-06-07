@@ -250,12 +250,16 @@
     /* Footer Styling */
 
     .copyright {
-
         padding: 30px;
         background-color: #192f59;
         color: #ffffff;
         width: 100%;
         text-align: center;
+    }
+
+    .app-footer {
+        position:absolute;
+        bottom:0;
     }
 
    
