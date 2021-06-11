@@ -13,11 +13,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="user-style/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Book <?php echo $row['movieTitle']; ?> Now</title>
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="{{asset('img/paragone-logo.png')}}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -65,17 +65,20 @@
                     </tr>
                 </table>
             </div>
-            <div class="booking-form-container">
-                <form action="" method="POST">
 
-                    <select name="theatre" required>
+            <div class="booking-form-container">
+                <form action="/booking" method="POST">
+                @csrf
+                    <input type="text" name="movieName" value="<?php echo $row['movieTitle']; ?>" hidden>
+
+                    <select name="bookingTheatre" required>
                         <option value="" disabled selected>THEATRE</option>
                         <option value="main-hall">Main Hall</option>
                         <option value="vip-hall">VIP Hall</option>
                         <option value="private-hall">Private Hall</option>
                     </select>
 
-                    <select name="type" required>
+                    <select name="bookingType" required>
                         <option value="" disabled selected>TYPE</option>
                         <option value="3d">3D</option>
                         <option value="2d">2D</option>
@@ -83,7 +86,7 @@
                         <option value="7d">7D</option>
                     </select>
 
-                    <select name="date" required>
+                    <select name="bookingDate" required>
                         <option value="" disabled selected>DATE</option>
                         <option value="12-3">March 12,2019</option>
                         <option value="13-3">March 13,2019</option>
@@ -92,7 +95,7 @@
                         <option value="16-3">March 16,2019</option>
                     </select>
 
-                    <select name="hour" required>
+                    <select name="bookingTime" required>
                         <option value="" disabled selected>TIME</option>
                         <option value="09-00">09:00 AM</option>
                         <option value="12-00">12:00 AM</option>
@@ -102,59 +105,21 @@
                         <option value="24-00">12:00 PM</option>
                     </select>
 
-                    <input placeholder="First Name" type="text" name="fName" required>
+                    <input placeholder="First Name" type="text" name="bookingFName" required>
 
-                    <input placeholder="Last Name" type="text" name="lName">
+                    <input placeholder="Last Name" type="text" name="bookingLName">
 
-                    <input placeholder="Phone Number" type="text" name="pNumber" required>
+                    <input placeholder="Phone Number" type="text" name="bookingPNumber" required>
 
                     <button type="submit" value="submit" name="submit" class="form-btn">Book a Seat</button>
-                    <?php
-                    $fNameErr = $pNumberErr= "";
-                    $fName = $pNumber = "";
-            
-                    if(isset($_POST['submit'])){
-                     
-            
-                        $fName = $_POST['fName'];
-                        if (!preg_match('/^[a-zA-Z0-9\s]+$/', $fName)) {
-                            $fNameErr = 'Name can only contain letters, numbers and white spaces';
-                            echo "<script type='text/javascript'>alert('$fNameErr');</script>";
-                        }   
-            
-                        $pNumber = $_POST['pNumber'];
-                        if (preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $pNumber)) {
-                            $pNumberErr = 'Phone Number can only contain numbers and white spaces';
-                            echo "<script type='text/javascript'>alert('$pNumberErr');</script>";
-                        } 
-                        
-                        $insert_query = "INSERT INTO 
-                        bookingTable (  movieName,
-                                        bookingTheatre,
-                                        bookingType,
-                                        bookingDate,
-                                        bookingTime,
-                                        bookingFName,
-                                        bookingLName,
-                                        bookingPNumber)
-                        VALUES (        '".$row['movieTitle']."',
-                                        '".$_POST["theatre"]."',
-                                        '".$_POST["type"]."',
-                                        '".$_POST["date"]."',
-                                        '".$_POST["hour"]."',
-                                        '".$_POST["fName"]."',
-                                        '".$_POST["lName"]."',
-                                        '".$_POST["pNumber"]."')";
-                        mysqli_query($link,$insert_query);
-                        }
-                    ?>
+                    
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="scripts/jquery-3.3.1.min.js "></script>
-    <script src="scripts/script.js "></script>
+    <script src="user-scripts/jquery-3.3.1.min.js "></script>
+    <script src="user-scripts/script.js "></script>
 </body>
 
 </html>

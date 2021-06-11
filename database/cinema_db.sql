@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 07:08 PM
+-- Generation Time: Jun 11, 2021 at 06:41 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -24,27 +24,47 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookingtable`
+-- Table structure for table `bookings`
 --
 
-CREATE TABLE `bookingtable` (
-  `bookingID` int(11) NOT NULL,
-  `movieName` varchar(100) DEFAULT NULL,
-  `bookingTheatre` varchar(100) NOT NULL,
-  `bookingType` varchar(100) DEFAULT NULL,
-  `bookingDate` varchar(50) NOT NULL,
-  `bookingTime` varchar(50) NOT NULL,
-  `bookingFName` varchar(100) NOT NULL,
-  `bookingLName` varchar(100) DEFAULT NULL,
-  `bookingPNumber` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `bookings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `movieName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingTheatre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingType` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingDate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingTime` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingFName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingLName` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bookingPNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bookingtable`
+-- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookingtable` (`bookingID`, `movieName`, `bookingTheatre`, `bookingType`, `bookingDate`, `bookingTime`, `bookingFName`, `bookingLName`, `bookingPNumber`) VALUES
-(25, 'Captain Marvel', 'main-hall', '3d', '14-3', '09-00', 'Bon', 'Bonapart', '0967978856');
+INSERT INTO `bookings` (`id`, `movieName`, `bookingTheatre`, `bookingType`, `bookingDate`, `bookingTime`, `bookingFName`, `bookingLName`, `bookingPNumber`, `created_at`, `updated_at`) VALUES
+(1, 'Captain Marvel', 'private-hall', '3d', '13-3', '12-00', 'Bon', 'Bonapart', '0967978856', '2021-06-10 06:19:03', '2021-06-10 06:19:03'),
+(2, 'The Lego Movie', 'main-hall', '2d', '13-3', '12-00', 'Bon', 'Bonapart', '0967978856', '2021-06-10 06:19:13', '2021-06-10 06:19:13'),
+(3, 'The Lego Movie', 'main-hall', '2d', '13-3', '12-00', 'Bon', 'Bonapart', '0967978856', '2021-06-10 06:22:17', '2021-06-10 06:22:17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -67,6 +87,28 @@ CREATE TABLE `feedbacktable` (
 INSERT INTO `feedbacktable` (`msgID`, `senderfName`, `senderlName`, `sendereMail`, `senderfeedback`) VALUES
 (1, 'Ahmed', 'Ali', 'Ahmed@mail.com', 'Hello first'),
 (2, 'Ahmed', 'Ali', 'asa@as.com', 'asdas');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2021_06_10_125202_create_bookings_table', 1);
 
 -- --------------------------------------------------------
 
@@ -99,19 +141,52 @@ INSERT INTO `movietable` (`movieID`, `movieImg`, `movieTitle`, `movieGenre`, `mo
 (12, 'img/', 'Bunkheng The Movie', 'Funny', 120, '2021-06-10', 'Try Many', 'Vyrayuth'),
 (13, 'img/', 'Bunkheng The Movie', 'Funny', 123, '2021-06-24', 'Try Many', 'Vyrayuth');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `bookingtable`
+-- Indexes for table `bookings`
 --
-ALTER TABLE `bookingtable`
-  ADD PRIMARY KEY (`bookingID`),
-  ADD UNIQUE KEY `bookingID` (`bookingID`),
-  ADD KEY `bookingID_2` (`bookingID`),
-  ADD KEY `bookingID_3` (`bookingID`),
-  ADD KEY `bookingID_4` (`bookingID`);
+ALTER TABLE `bookings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
 -- Indexes for table `feedbacktable`
@@ -121,6 +196,12 @@ ALTER TABLE `feedbacktable`
   ADD UNIQUE KEY `msgID` (`msgID`);
 
 --
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `movietable`
 --
 ALTER TABLE `movietable`
@@ -128,14 +209,33 @@ ALTER TABLE `movietable`
   ADD UNIQUE KEY `movieID` (`movieID`);
 
 --
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `bookingtable`
+-- AUTO_INCREMENT for table `bookings`
 --
-ALTER TABLE `bookingtable`
-  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+ALTER TABLE `bookings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `feedbacktable`
@@ -144,10 +244,22 @@ ALTER TABLE `feedbacktable`
   MODIFY `msgID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `movietable`
 --
 ALTER TABLE `movietable`
   MODIFY `movieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

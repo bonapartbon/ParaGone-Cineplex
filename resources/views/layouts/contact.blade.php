@@ -2,19 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="style/styles.css">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    @include('layouts.includes.meta')
     <title>ParaGone Cineplex | Contact</title>
-    <link rel="icon" type="image/png" href="img/logo.png">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -71,9 +60,9 @@
         © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED. 
     </footer>
 
-    <script src="scripts/jquery-3.3.1.min.js "></script>
-    <script src="scripts/owl.carousel.min.js "></script>
-    <script src="scripts/script.js "></script>
+    <script src="user-scripts/jquery-3.3.1.min.js "></script>
+    <script src="user-scripts/owl.carousel.min.js "></script>
+    <script src="user-scripts/script.js "></script>
 </body>
 
 </html>
