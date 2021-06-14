@@ -1,7 +1,7 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
-use App\Models\Booking;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,12 @@ use App\Models\Booking;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [App\Http\Controllers\MovieController::class, 'show']);
+
+Route::resource('admin/movies', 'App\Http\Controllers\MovieController');
+Route::resource('admin/bookings', 'App\Http\Controllers\BookingController');
+Route::resource('booking', 'App\Http\Controllers\homepageBookingController');
+
 
 Route::get('/showtimes', function () {
     return view('layouts/showtimes');
@@ -23,24 +26,6 @@ Route::get('/showtimes', function () {
 
 Route::get('/contact', function () {
     return view('layouts/contact');
-});
-
-Route::get('/booking', function () {
-    return view('layouts/booking');
-});
-
-Route::post('/booking', function () {
-    $booking = new Booking();
-    $booking->movieName = request('movieName');
-    $booking->bookingTheatre = request('bookingTheatre');
-    $booking->bookingType = request('bookingType');
-    $booking->bookingDate = request('bookingDate');
-    $booking->bookingTime = request('bookingTime');
-    $booking->bookingFName = request('bookingFName');
-    $booking->bookingLName = request('bookingLName');
-    $booking->bookingPNumber = request('bookingPNumber');
-    $booking->save();
-    return redirect('');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
