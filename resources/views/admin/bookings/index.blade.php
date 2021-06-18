@@ -16,35 +16,33 @@
     </div>
     @endif
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="datatablesSimple">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Title</th>
-                <th>Theatre</th>
                 <th>Type</th>
                 <th>Date</th>
                 <th>Time</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
+                <th>Ticket</th>
+                <th>Email</th>
                 <th>Phone Number</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-        @if (count($bookings) > 0)
-
             @foreach ($bookings as $booking)
             <tr>
                 <th>{{ $booking->id }}</th>
                 <td>{{ $booking->movieName }}</td>
-                <td>{{ $booking->bookingTheatre }}</td>
                 <td>{{ $booking->bookingType }}</td>
                 <td>{{ $booking->bookingDate }}</td>
                 <td>{{ $booking->bookingTime }}</td>
-                <td>{{ $booking->bookingFName }}</td>
-                <td>{{ $booking->bookingLName }}</td>
+                <td>{{ $booking->bookingTicket }}</td>
+                <td>{{ $booking->bookingName }}</td>
+                <td>{{ $booking->bookingEmail }}</td>
                 <td>{{ $booking->bookingPNumber }}</td>
                 <td><a type="button" href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-dark ">Edit</a></td>
                 <td>
@@ -56,9 +54,6 @@
                 </td>
             </tr>
             @endforeach
-            @else
-            <p>No Bookings Found</p>
-            @endif
         </tbody>
     </table>
     {{$bookings->links()}}

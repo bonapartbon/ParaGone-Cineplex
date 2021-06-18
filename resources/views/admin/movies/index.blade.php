@@ -16,7 +16,7 @@
     </div>
     @endif
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="datatablesSimple">
         <thead>
             <tr>
                 <th>#</th>
@@ -32,7 +32,6 @@
             </tr>
         </thead>
         <tbody>
-            @if (count($movies) > 0)
             @foreach ($movies as $movie)
             <tr>
                 <th>{{ $movie->id }}</th>
@@ -54,9 +53,6 @@
                 </td>
             </tr>
             @endforeach
-            @else
-            <p>No Movies Found</p>
-            @endif
         </tbody>
     </table>
         <div class="float-end">{{$movies->links()}}</div>

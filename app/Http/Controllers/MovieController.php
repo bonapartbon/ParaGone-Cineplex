@@ -58,16 +58,14 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $data = Movie::find($id);
-        return view('layouts.booking')->with('movie', $data);
-
+        
     }
 
     public function display()
     {
-        $data = Movie::all();
+        $data = Movie::latest()->get();
         return view('layouts.homepage',['movies'=>$data]);
     }
 

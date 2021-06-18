@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-<form class="row g-3 mx-5 my-5" action="{{ route('movies.store') }}" method="POST">
+<form class="row g-3 mx-5 my-3" action="{{ route('movies.store') }}" method="POST">
   <h1>Add New Movie</h1>
   @csrf
   <div class="col-md-6">
@@ -32,7 +32,7 @@
     <label for="formFile" class="form-label">Movie Image</label>
     <input class="form-control" type="file" name="movieImg" required>
   </div>
-  <div class="col-12">
+  <div class="col-4">
     <button type="submit" class="btn btn-dark btn-lg">Add</button>
   </div>
 </form>

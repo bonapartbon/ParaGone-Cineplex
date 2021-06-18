@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Movie;
-use App\Models\Booking;
 
-class homepageBookingController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class homepageBookingController extends Controller
      */
     public function index()
     {
-        $data = Movie::latest()->get();
-        return view('layouts.homepage')->with('movies', $data);
+        $users = User::latest()->paginate(5);
+        return view('admin.users.index', compact('users'));
 
     }
 
@@ -27,7 +26,7 @@ class homepageBookingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.createUser');
     }
 
     /**
@@ -38,21 +37,7 @@ class homepageBookingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'movieName'=>'required',
-            'bookingType'=>'required',
-            'bookingDate'=>'required',
-            'bookingTime'=>'required',
-            'bookingTicket'=>'required',
-            'bookingName'=>'required',
-            'bookingEmail'=>'required',
-            'bookingPNumber'=>'required',
-        ]);
-
-        Booking::create($request->all());
-
-        return redirect()->route('booking.index')
-            ->with('success', 'Tickets Booked Successfully.');
+        //
     }
 
     /**
@@ -63,9 +48,7 @@ class homepageBookingController extends Controller
      */
     public function show($id)
     {
-        $data = Movie::find($id);
-        return view('layouts.booking')->with('movie', $data);
-
+        //
     }
 
     /**
@@ -76,7 +59,8 @@ class homepageBookingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.editUser')->with('user', $user);
     }
 
     /**
@@ -86,9 +70,16 @@ class homepageBookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request -> validate([
+            
+        ]);
+
+        $user->update($request->all());
+
+        return redirect()->route('users.index')
+            ->with('success', 'User Updated Successfully.');
     }
 
     /**

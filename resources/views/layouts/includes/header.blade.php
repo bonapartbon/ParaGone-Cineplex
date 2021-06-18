@@ -1,10 +1,11 @@
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
+    <div class="justify-content-start">
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"></button>
       <a class="navbar-brand text-brand" href="/"><img src="{{asset('img/paragone-logo.png')}}" width="15%"> </a>
-
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      </div>
+      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">

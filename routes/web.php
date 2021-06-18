@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\MovieController@display');
 
-Route::resource('admin/movies', 'App\Http\Controllers\MovieController');
-Route::resource('admin/bookings', 'App\Http\Controllers\BookingController');
+Route::resource('admin/movies', 'App\Http\Controllers\MovieController')->middleware('is_admin');
+Route::resource('admin/bookings', 'App\Http\Controllers\BookingController')->middleware('is_admin');
+Route::resource('admin/users', 'App\Http\Controllers\UserController')->middleware('is_admin');
+
 Route::resource('booking', 'App\Http\Controllers\homepageBookingController');
 
 

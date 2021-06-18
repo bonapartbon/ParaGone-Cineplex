@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
-<form class="row g-3 mx-5 my-5" action="{{ route('bookings.store') }}" method="POST">
+<form class="row g-3 mx-5 my-3" action="{{ route('bookings.store') }}" method="POST">
     <h1>Add New Booking</h1>
     @csrf
     <div class="col-md-6">

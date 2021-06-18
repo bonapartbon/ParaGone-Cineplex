@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Movie;
+use App\Models\Booking;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -34,6 +37,11 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('/admin/adminHome');
+        $data = Movie::all();
+        $data1 = Booking::all();
+        $data2 = User::all();
+
+        return view('/admin/adminHome',['movie'=>$data, 'booking'=>$data1, 'user'=>$data2]);
+
     }
 }

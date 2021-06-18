@@ -12,7 +12,11 @@
 
         <h1>Currently Showing</h1>
         <h3>Book a movie now</h3>
-
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success mt-4">
+            <p>{{ $message }}</p>
+        </div>
+        @endif
         <div class="movies-container">
             @foreach ($movies as $movie)
             <div class="movie-box">
