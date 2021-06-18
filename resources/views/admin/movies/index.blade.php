@@ -16,10 +16,10 @@
     </div>
     @endif
 
-    <table id="datatablesSimple">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Image</th>
                 <th>Title</th>
                 <th>Genre</th>
@@ -27,26 +27,15 @@
                 <th>Release Date</th>
                 <th>Director</th>
                 <th>Actors</th>
-                <th>Actions</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Duration</th>
-                <th>Release Date</th>
-                <th>Director</th>
-                <th>Actors</th>
-                <th>Actions</th>
-            </tr>
-        </tfoot>
         <tbody>
+            @if (count($movies) > 0)
             @foreach ($movies as $movie)
             <tr>
-                <td>{{ ++$i }}</td>
+                <th>{{ $movie->id }}</th>
                 <td><img src="/img/{{ $movie->movieImg }}" style="width:80px; height:auto;"></td>
                 <td>{{ $movie->movieTitle }}</td>
                 <td>{{ $movie->movieGenre }}</td>
@@ -54,17 +43,22 @@
                 <td>{{ $movie->movieRelDate }}</td>
                 <td>{{ $movie->movieDirector }}</td>
                 <td>{{ $movie->movieActors }}</td>
+                <td> <a type="button" href="{{ route('movies.edit', $movie->id) }}" class="btn btn-dark ">Edit</a>
+                </td>
                 <td>
                     <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
-                        <a type="button" href="{{ route('movies.edit', $movie->id) }}" class="btn btn-dark ">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger ">Delete</button>
                     </form>
                 </td>
             </tr>
+            @endforeach
+            @else
+            <p>No Movies Found</p>
+            @endif
         </tbody>
-        @endforeach
     </table>
+        <div class="float-end">{{$movies->links()}}</div>
 </div>
 @endsection

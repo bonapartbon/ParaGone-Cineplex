@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('user-style/styles.css')}}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>ParaGone Cineplex | Booking</title>
     <link rel="icon" type="image/png" href="{{asset('img/paragone-favicon.png')}}">
 
@@ -26,7 +25,7 @@
         </div>
         <div class="booking-panel-section booking-panel-section3">
             <div class="movie-box">
-            <img src="img/{{ $movie->movieImg }}" class="img-thumbnail">                    
+                <img src="/img/{{$movie->movieImg}}" class="img-thumbnail">
             </div>
         </div>
         <div class="booking-panel-section booking-panel-section4">
@@ -39,7 +38,7 @@
                     </tr>
                     <tr>
                         <td>DURATION</td>
-                        <td>{{ $movie->movieDuration }}</td>
+                        <td>{{ $movie->movieDuration }} min</td>
                     </tr>
                     <tr>
                         <td>RELEASE DATE</td>
@@ -61,12 +60,14 @@
                 @csrf
                     <input type="text" name="movieName" value="{{ $movie->movieTitle }}" hidden>
 
-                    <select name="bookingTheatre" required>
-                        <option value="" disabled selected>THEATRE</option>
-                        <option value="main-hall">Main Hall</option>
-                        <option value="vip-hall">VIP Hall</option>
-                        <option value="private-hall">Private Hall</option>
-                    </select>
+                    
+                        <select name="bookingTheatre" class="form-select" aria-label="Default select example" required>
+                            <option value="" disabled selected>Theatre</option>
+                            <option>Mini (3 Seats)</option>
+                            <option>Medium (5 Seats)</option>
+                            <option>Giant (10 Seats)</option>
+                        </select>
+                    
 
                     <select name="bookingType" required>
                         <option value="" disabled selected>TYPE</option>
@@ -104,6 +105,59 @@
                     <button type="submit" value="submit" name="submit" class="form-btn">Book a Seat</button>
                     
                 </form>
+                
+                <!-- <form class="row g-3" action="{{ route('booking.store') }}" method="POST">
+                    <h1>Add New Booking</h1>
+                    @csrf
+                    <div class="col-md-6">
+                        <label class="form-label">Title</label>
+                        <input type="text" name="movieName" class="form-control" placeholder="Movie Title" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Theatre</label>
+                        <select name="bookingTheatre" class="form-select" aria-label="Default select example" required>
+                            <option value="" disabled selected>Theatre</option>
+                            <option>Mini (3 Seats)</option>
+                            <option>Medium (5 Seats)</option>
+                            <option>Giant (10 Seats)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Type</label>
+                        <select name="bookingType" class="form-select" aria-label="Default select example" required>
+                            <option value="" disabled selected>Type</option>
+                            <option>2D</option>
+                            <option>3D</option>
+                            <option>4DX</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Date</label>
+                        <input type="date" name="bookingDate" class="form-control" placeholder="Movie Date" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Time</label>
+                        <input type="time" name="bookingTime" class="form-control" placeholder="Movie Time" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">First Name</label>
+                        <input type="text" name="bookingFName" class="form-control" placeholder="First Name" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" name="bookingLName" class="form-control" placeholder="Last Name" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" name="bookingPNumber" class="form-control" placeholder="Phone Number" required>
+                    </div>
+
+
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-dark btn-lg">Add</button>
+                    </div>
+                </form> -->
             </div>
         </div>
     </div>

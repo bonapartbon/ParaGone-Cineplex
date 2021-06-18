@@ -15,8 +15,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::latest()->paginate(5);
-        return view('admin.movies.index', compact('movies'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('admin.movies.index', compact('movies'));
     }
 
     /**
@@ -59,11 +58,17 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
+    {
+        $data = Movie::find($id);
+        return view('layouts.booking')->with('movie', $data);
+
+    }
+
+    public function display()
     {
         $data = Movie::all();
         return view('layouts.homepage',['movies'=>$data]);
-
     }
 
     /**
@@ -76,6 +81,7 @@ class MovieController extends Controller
     {
         return view('admin.movies.editMovie', compact('movie'));
     }
+    
 
     /**
      * Update the specified resource in storage.

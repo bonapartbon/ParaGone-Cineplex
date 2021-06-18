@@ -37,6 +37,9 @@
             {{ Auth::user()->name }}
           </a>
             <div class="dropdown-menu">
+            @if (auth()->user()->is_admin == 1)
+            <a class="dropdown-item" href="{{ url('admin/dashboard') }}">Admin Dashboard</a>
+            @endif
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
               {{ __('Logout') }}

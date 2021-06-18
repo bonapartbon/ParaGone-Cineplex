@@ -58,9 +58,6 @@
     </div>
 
 
-
-
-
     <footer class="copyright">
         © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.
     </footer>

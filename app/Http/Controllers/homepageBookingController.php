@@ -15,7 +15,8 @@ class homepageBookingController extends Controller
      */
     public function index()
     {
-        //
+        $data = Movie::all();
+        return view('layouts.homepage', ['movies' => $data]);
     }
 
     /**
@@ -36,7 +37,21 @@ class homepageBookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'movieName'=>'required',
+            'bookingTheatre'=>'required',
+            'bookingType'=>'required',
+            'bookingDate'=>'required',
+            'bookingTime'=>'required',
+            'bookingFName'=>'required',
+            'bookingLName'=>'required',
+            'bookingPNumber'=>'required',
+        ]);
+
+        Booking::create($request->all());
+
+        return redirect()->route('booking.index')
+            ->with('success', 'Tickets Booked Successfully.');
     }
 
     /**
@@ -45,14 +60,11 @@ class homepageBookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie)
+    public function show($id)
     {
-        
-        // $data = Movie::find($movie->id);
-        $data = Movie::where('id', $movie->id)->first();
+        $data = Movie::find($id);
+        return view('layouts.booking')->with('movie', $data);
 
-        return view('layouts.booking',['movie'=>$data]);
-    
     }
 
     /**

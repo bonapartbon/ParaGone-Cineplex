@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
-use App\Models\Movie;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 
@@ -17,8 +16,7 @@ class BookingController extends Controller
     public function index()
     {
         $bookings = Booking::latest()->paginate(5);
-        return view('admin.bookings.index', compact('bookings'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('admin.bookings.index', compact('bookings'));
     }
 
     /**

@@ -16,10 +16,10 @@
     </div>
     @endif
 
-    <table id="datatablesSimple">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <th>Title</th>
                 <th>Theatre</th>
                 <th>Type</th>
@@ -28,25 +28,16 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Phone Number</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Theatre</th>
-                <th>Type</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Phone Number</th>
-            </tr>
-        </tfoot>
         <tbody>
+        @if (count($bookings) > 0)
+
             @foreach ($bookings as $booking)
             <tr>
-                <td>{{ ++$i }}</td>
+                <th>{{ $booking->id }}</th>
                 <td>{{ $booking->movieName }}</td>
                 <td>{{ $booking->bookingTheatre }}</td>
                 <td>{{ $booking->bookingType }}</td>
@@ -55,19 +46,21 @@
                 <td>{{ $booking->bookingFName }}</td>
                 <td>{{ $booking->bookingLName }}</td>
                 <td>{{ $booking->bookingPNumber }}</td>
-
-
+                <td><a type="button" href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-dark ">Edit</a></td>
                 <td>
                     <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
-                        <a type="button" href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-dark ">Edit</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger ">Delete</button>
                     </form>
                 </td>
             </tr>
+            @endforeach
+            @else
+            <p>No Bookings Found</p>
+            @endif
         </tbody>
-        @endforeach
     </table>
+    {{$bookings->links()}}
 </div>
 @endsection

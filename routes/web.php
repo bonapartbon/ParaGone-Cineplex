@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\MovieController::class, 'show']);
+Route::get('/', 'App\Http\Controllers\MovieController@display');
 
 Route::resource('admin/movies', 'App\Http\Controllers\MovieController');
 Route::resource('admin/bookings', 'App\Http\Controllers\BookingController');
