@@ -9,9 +9,15 @@
 <body>
 @include('layouts.includes.header')
     <div class="booking-panel">
+        @if ($movie->movieCurrent == "showing")
         <div class="booking-panel-section booking-panel-section1">
             <h1>RESERVE YOUR TICKET</h1>
         </div>
+        @else
+        <div class="booking-panel-section booking-panel-section1">
+            <h1>UPCOMING MOVIE</h1>
+        </div>
+        @endif
         <div class="booking-panel-section booking-panel-section2" onclick="window.history.go(-1); return false;">
             <i class="fas fa-2x fa-times"></i>
         </div>
@@ -49,7 +55,8 @@
             <!-- <div class="d-flex justify-content-center py-3">
                     <iframe class="" width="1120" height="630" src="https://www.youtube.com/embed/fEE4RO-_jug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div> -->
- 
+
+            @if ($movie->movieCurrent == "showing")
              <div class="booking-form-container">
                 <form action="/booking" method="POST">
                     @csrf
@@ -102,7 +109,7 @@
 
                 </form>
             </div>
-
+            @endif
 
         </div>
     </div>

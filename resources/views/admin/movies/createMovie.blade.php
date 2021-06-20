@@ -9,6 +9,14 @@
     <input type="text" name="movieTitle" class="form-control" placeholder="Movie Title" required>
   </div>
   <div class="col-md-6">
+    <label class="form-label">Current</label>
+    <select class="form-select" name="movieCurrent" aria-label="Default select example" required>
+        <option value="" disabled selected>Currently</option>
+            <option name="movieCurrent" value="showing" >showing</option>
+            <option name="is_admin" value="upcoming" >upcoming</option>
+        </select>
+  </div>
+  <div class="col-md-6">
     <label class="form-label">Genre</label>
     <input type="text" name="movieGenre" class="form-control" placeholder="Movie Genre" required>
   </div>

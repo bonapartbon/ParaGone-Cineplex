@@ -10,7 +10,7 @@
     @include('layouts.includes.header')
     <div id="home-section-1" class="movie-show-container">
 
-        <h1>Currently Showing</h1>
+        <h1>Upcoming Movies</h1>
         <h3>Book a movie now</h3>
         @if ($message = Session::get('success'))
         <div class="alert alert-success mt-4">
@@ -19,15 +19,15 @@
         @endif
         <div class="movies-container">
             @foreach ($movies as $movie)
-            @if ($movie->movieCurrent == "showing")
-            <div class="movie-box">
-                <img src="img/{{ $movie->movieImg }}" class="img-thumbnail">
-                <div class="movie-info">
-                    <h3>{{ $movie->movieTitle }}</h3>
-                    <a href="{{ route('booking.show', $movie->id) }}"><i class="fas fa-ticket-alt"></i> Book a seat</a>
-                </div>
-            </div>
-            @endif
+                @if ($movie->movieCurrent == "upcoming")
+                    <div class="movie-box">
+                        <img src="img/{{ $movie->movieImg }}" class="img-thumbnail">
+                        <div class="movie-info">
+                            <h3>{{ $movie->movieTitle }}</h3>
+                            <a href="{{ route('booking.show', $movie->id) }}"><i class="fas fa-ticket-alt"></i> Book a seat</a>
+                        </div>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>

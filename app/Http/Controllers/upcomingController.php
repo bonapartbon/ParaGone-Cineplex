@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use App\Models\Booking;
 
-class UserController extends Controller
+class upcomingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(5);
-        return view('admin.users.index', compact('users'));
+        $data = Movie::latest()->get();
+        return view('layouts.upcoming')->with('movies', $data);
 
     }
 
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.createUser');
+        //
     }
 
     /**
@@ -37,7 +38,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'movieName'=>'required',
+            'bookingType'=>'required',
+            'bookingDate'=>'required',
+            'bookingTime'=>'required',
+            'bookingTicket'=>'required',
+            'bookingName'=>'required',
+            'bookingEmail'=>'required',
+            'bookingPNumber'=>'required',
+        ]);
+
+        Booking::create($request->all());
+
+        return redirect()->route('booking.index')
+            ->with('success', 'Tickets Booked Successfully.');
     }
 
     /**
@@ -48,7 +63,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Movie::find($id);
+        return view('layouts.booking')->with('movie', $data);
+
     }
 
     /**
@@ -59,8 +76,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('admin.users.editUser')->with('user', $user);
+        //
     }
 
     /**
@@ -70,16 +86,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $request -> validate([
-
-        ]);
-
-        $user->update($request->all());
-
-        return redirect()->route('users.index')
-            ->with('success', 'User Updated Successfully.');
+        //
     }
 
     /**
@@ -91,9 +100,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->route('users.index')
-        ->with('success', 'User Deleted Successfully.');
     }
 }
