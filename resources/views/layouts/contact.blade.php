@@ -7,14 +7,14 @@
 </head>
 
 <body>
-    <?php 
+    <?php
         $link = mysqli_connect("localhost", "root", "", "cinema_db");
     ?>
-    
+
     @include('layouts.includes.header')
 
 
-    
+
     <div class="contact-us-container">
         <div class="contact-us-section contact-us-section1">
             <h1>Contact</h1>
@@ -27,7 +27,7 @@
                 <button type="submit" name="submit" value="submit">Send your Message</button>
                 <?php
                     if(isset($_POST['submit'])){
-                        $insert_query = "INSERT INTO 
+                        $insert_query = "INSERT INTO
                         feedbackTable ( senderfName,
                                         senderlName,
                                         sendereMail,
@@ -40,7 +40,7 @@
                         }
                     ?>
             </form>
-            
+
         </div>
         <div class="contact-us-section contact-us-section2">
             <h1>Address & Info</h1>
@@ -53,11 +53,11 @@
             <p><a href="mailto:cinemareservation@bue.edu.eg">cinemareservation@bue.edu.eg</a></p>
         </div>
     </div>
-    
+
     <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=BUE&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
 
-    <footer class="copyright"> 
-        © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED. 
+    <footer class="copyright">
+        © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.
     </footer>
 
     <script src="user-scripts/jquery-3.3.1.min.js "></script>

@@ -39,6 +39,7 @@ class MovieController extends Controller
         $request->validate([
             'movieImg'=>'required',
             'movieTitle'=>'required',
+            'movieCurrent'=>'required',
             'movieGenre'=>'required',
             'movieDuration'=>'required',
             'movieRelDate'=>'required',
@@ -60,7 +61,7 @@ class MovieController extends Controller
      */
     public function show()
     {
-        
+        //
     }
 
     public function display()
@@ -79,7 +80,7 @@ class MovieController extends Controller
     {
         return view('admin.movies.editMovie', compact('movie'));
     }
-    
+
 
     /**
      * Update the specified resource in storage.

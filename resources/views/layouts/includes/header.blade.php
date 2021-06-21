@@ -13,6 +13,10 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link " href="{{url('upcoming')}}">Upcoming</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link " href="{{url('showtimes')}}">Showtimes</a>
           </li>
 
@@ -54,7 +58,7 @@
           </div>
           </li>
           @endguest
-          
+
         </ul>
       </div>
 

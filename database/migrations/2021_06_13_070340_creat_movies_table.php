@@ -17,6 +17,7 @@ class CreatMoviesTable extends Migration
             $table->id();
             $table->string('movieImg');
             $table->string('movieTitle');
+            $table->string('movieCurrent');
             $table->string('movieGenre');
             $table->integer('movieDuration');
             $table->date('movieRelDate');
