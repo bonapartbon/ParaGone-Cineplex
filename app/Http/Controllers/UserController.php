@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.createUser');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -90,7 +90,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
         $user = User::find($id);
         $user->delete();
         return redirect()->route('users.index')
