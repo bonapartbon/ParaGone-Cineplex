@@ -49,8 +49,14 @@ class MovieController extends Controller
 
         Movie::create($request->all());
 
-        return redirect()->route('movies.index')
+        if ($request->movieCurrent == "showing"){
+            return redirect()->route('movies.index')
             ->with('success', 'Movie Added Successfully.');
+        }else {
+            return redirect()->route('upcomings.index')
+            ->with('success', 'Movie Added Successfully.');
+        }
+
     }
 
     /**
@@ -97,8 +103,15 @@ class MovieController extends Controller
 
         $movie->update($request->all());
 
-        return redirect()->route('movies.index')
+        // return redirect()->route('movies.index')
+        //     ->with('success', 'Movie Updated Successfully.');
+        if ($request->movieCurrent == "showing"){
+            return redirect()->route('movies.index')
             ->with('success', 'Movie Updated Successfully.');
+        }else {
+            return redirect()->route('upcomings.index')
+            ->with('success', 'Movie Updated Successfully.');
+        }
     }
 
     /**
@@ -111,7 +124,14 @@ class MovieController extends Controller
     {
         $movie->delete();
 
-        return redirect()->route('movies.index')
-        ->with('success', 'Movie Deleted Successfully.');
+        // return redirect()->route('movies.index')
+        // ->with('success', 'Movie Deleted Successfully.');
+        if ($movie->movieCurrent == "showing"){
+            return redirect()->route('movies.index')
+            ->with('success', 'Movie Deleted Successfully.');
+        }else {
+            return redirect()->route('upcomings.index')
+            ->with('success', 'Movie Deleted Successfully.');
+        }
     }
 }

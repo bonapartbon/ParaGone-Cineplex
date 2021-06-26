@@ -4,7 +4,7 @@
 <div class="mx-5 my-5">
 
     <div class="d-flex justify-content-between">
-        <h1>Showing Movies List</h1>
+        <h1>Upcoming Movies List</h1>
         <div>
             <a type="button" href="{{ route('movies.create') }}" class="btn btn-dark ">+ Add New Movie</a>
         </div>
@@ -15,7 +15,6 @@
         <p>{{ $message }}</p>
     </div>
     @endif
-
     <table class="table table-striped table-hover" id="datatablesSimple">
         <thead>
             <tr>
@@ -33,7 +32,7 @@
         </thead>
         <tbody>
             @foreach ($movies as $movie)
-            @if ($movie->movieCurrent == "showing")
+            @if ($movie->movieCurrent == "upcoming")
             <tr>
                 <th>{{ $movie->id }}</th>
                 <td><img src="/img/{{ $movie->movieImg }}" style="width:80px; height:auto;"></td>
