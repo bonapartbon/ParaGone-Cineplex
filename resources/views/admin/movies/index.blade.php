@@ -20,7 +20,6 @@
                 <h2 class="font-weight-bold">Movie List</h2>
                 <button type="button" href="{{ route('movies.create') }}" class="btn btn-dark text-center my-0">+ Add New Movie</button>
             </div>
-
             <div class="card-body ">
                 <table class="table table-striped table-hover">
                     <thead>
