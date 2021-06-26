@@ -27,7 +27,6 @@
                             <th>#</th>
                             <th>Image</th>
                             <th>Title</th>
-                            <th>Current</th>
                             <th>Genre</th>
                             <th>Duration</th>
                             <th>Release Date</th>
@@ -43,7 +42,6 @@
                             <th>{{ $movie->id }}</th>
                             <td><img src="/img/{{ $movie->movieImg }}" style="width:80px; height:auto;"></td>
                             <td>{{ $movie->movieTitle }}</td>
-                            <td>{{ $movie->movieCurrent }}</td>
                             <td>{{ $movie->movieGenre }}</td>
                             <td>{{ $movie->movieDuration }}</td>
                             <td>{{ $movie->movieRelDate }}</td>
