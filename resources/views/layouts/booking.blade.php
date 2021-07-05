@@ -7,7 +7,7 @@
 </head>
 
 <body>
-@include('layouts.includes.header')
+    @include('layouts.includes.header')
     <div class="booking-panel">
         @if ($movie->movieCurrent == "showing")
         <div class="booking-panel-section booking-panel-section1">
@@ -28,7 +28,9 @@
         </div>
         <div class="booking-panel-section booking-panel-section4 ">
             <div class="title">{{ $movie->movieTitle }}</div>
+
             <div class="movie-information">
+
                 <table>
                     <tr>
                         <td>GENGRE</td>
@@ -50,25 +52,41 @@
                         <td>ACTORS</td>
                         <td>{{ $movie->movieActors }}</td>
                     </tr>
+                    <tr>
+                        <td>TRAILER</td>
+                        <td><button style="background-color: #192f59; color: white;" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#TrailerModal">Click Here!</button></td>
+                    </tr>
                 </table>
             </div>
-            <!-- <div class="d-flex justify-content-center py-3">
-                    <iframe class="" width="1120" height="630" src="https://www.youtube.com/embed/fEE4RO-_jug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div> -->
+
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="TrailerModal" tabindex="-1" aria-labelledby="TrailerModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <div class="position-absolute top-50 start-50 translate-middle">
+                            <iframe width="1120" height="630" src="{{ $movie->movieTrailer }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
             @if ($movie->movieCurrent == "showing")
-             <div class="booking-form-container">
-                <form action="/booking" method="POST">
+            <div class="booking-form-container">
+                <form method="POST">
                     @csrf
                     <input type="text" name="movieName" value="{{ $movie->movieTitle }}" hidden>
-
+                    
                     <select name="bookingType" class="form-select" aria-label="Default select example" required>
                         <option value="" disabled selected>THEATRE TYPE</option>
                         <option>2D</option>
                         <option>3D</option>
                         <option>4DX</option>
                     </select>
-
+                    
                     <select name="bookingDate" required>
                         <option value="" disabled selected>DATE</option>
                         <option value="June 19, 2021">June 19, 2021</option>
@@ -101,26 +119,23 @@
                         <option value="10">10</option>
                     </select>
 
+                    @if (auth()->check())
+                    <input type="text" name="bookingName" required  value="{{auth()->user()->name}}">
+                    <input type="email" name="bookingEmail" required  value="{{auth()->user()->email}}">
+                    @else
                     <input placeholder="Full Name" type="text" name="bookingName" required>
                     <input type="email" name="bookingEmail" class="form-control" placeholder="Email Address" required>
-                    <input placeholder="Phone Number" type="text" name="bookingPNumber" required>
+                    @endif
 
-                    <button type="submit" value="submit" name="submit" class="form-btn">Book Now</button>
+                    <input placeholder="Phone Number" type="text" name="bookingPNumber" required>
+                    <button type="submit" value="submit" formaction="{{route('booking.index')}}" class="form-btn">Book Now</button>
 
                 </form>
             </div>
             @endif
-
         </div>
     </div>
-
-    <footer class="copyright">
-        © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.
-    </footer>
-
-
-    <script src="{{asset('user-scripts/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('user-scripts/script.js')}}"></script>
+    @include('layouts.includes.footer')
 </body>
 
 </html>

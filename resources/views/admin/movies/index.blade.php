@@ -17,8 +17,8 @@
 
         <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
             <div class="card-header d-flex justify-content-between">
-                <h2 class="font-weight-bold">Movie List</h2>
-                <button type="button" href="{{ route('movies.create') }}" class="btn btn-dark text-center my-0">+ Add New Movie</button>
+                <h2 class="font-weight-bold">Now Showing Movies</h2>
+                <a type="button" href="{{ route('movies.create') }}" class="btn btn-dark my-1 ">+ Add New Movie</a>
             </div>
             <div class="card-body ">
                 <table class="table table-striped table-hover">
@@ -38,6 +38,8 @@
                     </thead>
                     <tbody>
                         @foreach ($movies as $movie)
+                        @if ($movie->movieCurrent == "showing")
+
                         <tr>
                             <th>{{ $movie->id }}</th>
                             <td><img src="/img/{{ $movie->movieImg }}" style="width:80px; height:auto;"></td>
@@ -57,6 +59,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endif
                         @endforeach
                     </tbody>
                 </table>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\Booking;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+use App\Mail\TicketsMail;
 
 class homepageBookingController extends Controller
 {
@@ -17,7 +20,6 @@ class homepageBookingController extends Controller
     {
         $data = Movie::latest()->get();
         return view('layouts.homepage')->with('movies', $data);
-
     }
 
     /**
@@ -39,20 +41,25 @@ class homepageBookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'movieName'=>'required',
-            'bookingType'=>'required',
-            'bookingDate'=>'required',
-            'bookingTime'=>'required',
-            'bookingTicket'=>'required',
-            'bookingName'=>'required',
-            'bookingEmail'=>'required',
-            'bookingPNumber'=>'required',
+            'movieName' => 'required',
+            'bookingType' => 'required',
+            'bookingDate' => 'required',
+            'bookingTime' => 'required',
+            'bookingTicket' => 'required',
+            'bookingName' => 'required',
+            'bookingEmail' => 'required',
+            'bookingPNumber' => 'required',
         ]);
 
         Booking::create($request->all());
-
+        $details = Booking::latest()->get()->first();
+        if (Auth::check()) {
+            Mail::to(Auth::user()->email)->send(new TicketsMail($details));
+        } else {
+            Mail::to($request->bookingEmail)->send(new TicketsMail($details));
+        }
         return redirect()->route('booking.index')
-            ->with('success', 'Tickets Booked Successfully.');
+            ->with('success', 'Tickets Booked Successfully, Please check your email for the ticket detail!');
     }
 
     /**
@@ -65,7 +72,6 @@ class homepageBookingController extends Controller
     {
         $data = Movie::find($id);
         return view('layouts.booking')->with('movie', $data);
-
     }
 
     /**

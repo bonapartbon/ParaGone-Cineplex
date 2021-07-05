@@ -56,13 +56,7 @@
 
     <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=BUE&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
 
-    <footer class="copyright">
-        © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.
-    </footer>
-
-    <script src="user-scripts/jquery-3.3.1.min.js "></script>
-    <script src="user-scripts/owl.carousel.min.js "></script>
-    <script src="user-scripts/script.js "></script>
+        @include('layouts.includes.footer')
 </body>
 
 </html>

@@ -35,9 +35,13 @@
           <label class="form-label">Director</label>
           <input type="text" name="movieDirector" class="form-control" placeholder="Movie Director" required>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <label class="form-label">Actors</label>
           <input type="text" name="movieActors" class="form-control" placeholder="Movie Actors" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Trailer URL</label>
+          <input type="text" name="movieTrailer" class="form-control" placeholder="Movie Trailer URL" required>
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Movie Image</label>

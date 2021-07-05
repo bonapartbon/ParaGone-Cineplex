@@ -23,6 +23,8 @@ class CreatMoviesTable extends Migration
             $table->date('movieRelDate');
             $table->string('movieDirector');
             $table->string('movieActors');
+            $table->string('movieTrailer');
+
             $table->timestamps();
         });
     }
