@@ -19,6 +19,17 @@ class MovieController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function upcoming()
+    {
+        $movies = Movie::latest()->paginate(5);
+        return view('admin.movies.upcoming', compact('movies'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -45,6 +56,7 @@ class MovieController extends Controller
             'movieRelDate'=>'required',
             'movieDirector'=>'required',
             'movieActors'=>'required',
+            'movieTrailer'=>'required',
         ]);
 
         Movie::create($request->all());

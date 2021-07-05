@@ -13,7 +13,7 @@
         <h1>Currently Showing</h1>
         <h3>Book a movie now</h3>
         @if ($message = Session::get('success'))
-        <div class="alert alert-success mt-4">
+        <div class="alert alert-success mt-4 pb-0">
             <p>{{ $message }}</p>
         </div>
         @endif
@@ -64,12 +64,7 @@
     </div>
 
 
-    <footer class="copyright">
-        © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.
-    </footer>
-
-    <script src="user-scripts/jquery-3.3.1.min.js "></script>
-    <script src="user-scripts/script.js "></script>
+    @include('layouts.includes.footer')
 </body>
 
 </html>

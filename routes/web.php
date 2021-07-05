@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,10 @@ Route::get('/', 'App\Http\Controllers\MovieController@display');
 Route::resource('admin/movies', 'App\Http\Controllers\MovieController')->middleware('is_admin');
 Route::resource('admin/bookings', 'App\Http\Controllers\BookingController')->middleware('is_admin');
 Route::resource('admin/users', 'App\Http\Controllers\UserController')->middleware('is_admin');
-Route::resource('admin/upcomings', 'App\Http\Controllers\adminUpcomingController')->middleware('is_admin');
+Route::get('admin/upcomings', 'App\Http\Controllers\MovieController@upcoming')->middleware('is_admin');
 
 Route::resource('booking', 'App\Http\Controllers\homepageBookingController');
+
 
 Route::get('/upcoming', function () {
     return view('layouts/upcoming');
@@ -28,7 +30,6 @@ Route::get('/upcoming', function () {
 Route::get('/showtimes', function () {
     return view('layouts/showtimes');
 });
-
 Route::get('/contact', function () {
     return view('layouts/contact');
 });

@@ -56,7 +56,7 @@
                             Dashboard
                         </a>
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMovies" aria-expanded="false" aria-controls="collapseMovies">
+                        <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMovies" aria-expanded="false" aria-controls="collapseMovies">
                             <div class="sb-nav-link-icon"><i class="fas fa-film"></i></div>
                             Movie List
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -70,6 +70,28 @@
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="collapseMovies" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="{{url('admin/movies')}}">Showing Movies</a>
+                                        <a class="nav-link" href="{{ url('admin/upcomings') }}">Upcoming Movies</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="{{ route('movies.create') }}">Add New Movie</a>
+                            </nav>
+                        </div> -->
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMovies" aria-expanded="false" aria-controls="collapseMovies">
+                            <div class="sb-nav-link-icon"><i class="fas fa-film"></i></div>
+                            Movie List
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseMovies" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseMoviesTable" aria-expanded="false" aria-controls="collapseMoviesTable">
+                                <div class="sb-nav-link-icon"><i class="fas fa-film"></i></div>
+                                    Movie Tables
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseMoviesTable" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="{{url('admin/movies')}}">Showing Movies</a>
                                         <a class="nav-link" href="{{ url('admin/upcomings') }}">Upcoming Movies</a>

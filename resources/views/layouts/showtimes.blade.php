@@ -151,13 +151,7 @@
 
     </div>
     
-    <footer class="copyright">
-    © COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED. 
-    </footer>
-
-    <script src="user-scripts/jquery-3.3.1.min.js "></script>
-    <script src="user-scripts/owl.carousel.min.js "></script>
-    <script src="user-scripts/script.js "></script>
+    @include('layouts.includes.footer')
 </body>
 
 </html>
