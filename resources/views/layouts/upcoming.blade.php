@@ -19,15 +19,15 @@
         @endif
         <div class="movies-container">
             @foreach ($movies as $movie)
-                @if ($movie->movieCurrent == "upcoming")
-                    <div class="movie-box">
-                        <img src="img/{{ $movie->movieImg }}" class="img-thumbnail">
-                        <div class="movie-info">
-                            <h3>{{ $movie->movieTitle }}</h3>
-                            <a href="{{ route('booking.show', $movie->id) }}"><i class="fas fa-ticket-alt"></i> Book a seat</a>
-                        </div>
-                    </div>
-                @endif
+            @if ($movie->movieCurrent == "upcoming")
+            <div class="movie-box">
+                <img src="img/{{ $movie->movieImg }}" class="img-thumbnail">
+                <div class="movie-info">
+                    <h3>{{ $movie->movieTitle }}</h3>
+                    <a href="{{ route('booking.show', $movie->id) }}">View Detail</a>
+                </div>
+            </div>
+            @endif
             @endforeach
         </div>
     </div>

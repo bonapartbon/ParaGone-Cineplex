@@ -79,56 +79,59 @@
                 <form method="POST">
                     @csrf
                     <input type="text" name="movieName" value="{{ $movie->movieTitle }}" hidden>
-                    
-                    <select name="bookingType" class="form-select" aria-label="Default select example" required>
+                    <input type="text" name="total" id="total" hidden>
+
+                    <select name="bookingType" class="form-select" id="bookingType" aria-label="Default select example" oninput="calc();" required>
                         <option value="" disabled selected>THEATRE TYPE</option>
                         <option>2D</option>
                         <option>3D</option>
                         <option>4DX</option>
                     </select>
-                    
+
                     <select name="bookingDate" required>
                         <option value="" disabled selected>DATE</option>
-                        <option value="June 19, 2021">June 19, 2021</option>
-                        <option value="June 21, 2021">June 21, 2021</option>
-                        <option value="June 22, 2021">June 22, 2021</option>
-                        <option value="June 23, 2021">June 23, 2021</option>
-                        <option value="June 24, 2021">June 24, 2021</option>
+                        <option>June 19, 2021</option>
+                        <option>June 21, 2021</option>
+                        <option>June 22, 2021</option>
+                        <option>June 23, 2021</option>
+                        <option>June 24, 2021</option>
                     </select>
 
                     <select name="bookingTime" required>
-                        <option value="" disabled selected>TIME</option>
-                        <option value="09:00 AM">09:00 AM</option>
-                        <option value="12:00 AM">12:00 AM</option>
-                        <option value="03:00 PM">03:00 PM</option>
-                        <option value="06:00 PM">06:00 PM</option>
-                        <option value="09:00 PM">09:00 PM</option>
+                        <option value=""  disabled selected>TIME</option>
+                        <option>09:00 AM</option>
+                        <option>12:00 AM</option>
+                        <option>03:00 PM</option>
+                        <option>06:00 PM</option>
+                        <option>09:00 PM</option>
                     </select>
 
-                    <select name="bookingTicket" required>
+                    <select name="bookingTicket" id="bookingTicket" oninput="calc();" required>
                         <option value="" disabled selected>NUMBER OF TICKETS</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
                     </select>
 
                     @if (auth()->check())
-                    <input type="text" name="bookingName" required  value="{{auth()->user()->name}}">
-                    <input type="email" name="bookingEmail" required  value="{{auth()->user()->email}}">
+                    <input type="text" name="bookingName" required value="{{auth()->user()->name}}">
+                    <input type="email" name="bookingEmail" required value="{{auth()->user()->email}}">
                     @else
                     <input placeholder="Full Name" type="text" name="bookingName" required>
                     <input type="email" name="bookingEmail" class="form-control" placeholder="Email Address" required>
+
                     @endif
 
                     <input placeholder="Phone Number" type="text" name="bookingPNumber" required>
-                    <button type="submit" value="submit" formaction="{{route('booking.index')}}" class="form-btn">Book Now</button>
+
+                    <button type="submit" value="submit" formaction="{{route('booking.index')}}" class="form-btn"><b>Book Now - Total: $<span id="bookingTotal">0</span></b></button>
 
                 </form>
             </div>

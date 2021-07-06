@@ -23,6 +23,7 @@ class CreateBookingsTable extends Migration
             $table->string('bookingName');
             $table->string('bookingEmail');
             $table->string('bookingPNumber');
+            $table->integer('total');
             $table->timestamps();
         });
     }

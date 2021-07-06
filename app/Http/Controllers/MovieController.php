@@ -82,11 +82,20 @@ class MovieController extends Controller
         //
     }
 
+    // Show movies to Showing Homepage
     public function display()
     {
         $data = Movie::latest()->get();
         return view('layouts.homepage',['movies'=>$data]);
     }
+
+    // Show movies to Upcoming Homepage
+    public function displayUp()
+    {
+        $data = Movie::latest()->get();
+        return view('layouts.upcoming',['movies'=>$data]);
+    }
+
 
     /**
      * Show the form for editing the specified resource.

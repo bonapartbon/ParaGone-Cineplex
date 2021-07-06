@@ -1,20 +1,20 @@
 // Load Page Parts a Home
 
-$(document).ready(function () {
+$(document).ready(function() {
     $("header").load("includes/header.php");
     $("footer").load("includes/footer.php");
 });
 
 // faded scroll
-$(function () {
+$(function() {
     var documentElement = $(document),
         fadeElement = $('.fade-scroll');
 
 
-    documentElement.on('scroll', function () {
+    documentElement.on('scroll', function() {
         var currScrollPos = documentElement.scrollTop();
 
-        fadeElement.each(function () {
+        fadeElement.each(function() {
             var $this = $(this),
                 elemOffsetTop = $this.offset().top;
             if (currScrollPos > elemOffsetTop) $this.css('opacity', 1 - (currScrollPos - elemOffsetTop) / 400);
@@ -25,7 +25,7 @@ $(function () {
 
 
 // Trailers Section image to video efect
-$('.trailer-item-info').click(function () {
+$('.trailer-item-info').click(function() {
     var video = $('<iframe />', {
         'class': "trailer-item-video",
         'src': "https://www.youtube.com/embed/" + this.dataset.video + "?controls=0",
@@ -41,33 +41,33 @@ $('.trailer-item-info').click(function () {
 
 // showing and hiding notifications panel in admin secyion
 
-$(".admin-notification-button").click(function () {
+$(".admin-notification-button").click(function() {
     $('.admin-notifications').removeClass('hidden-div');
 });
 
-$('.admin-notification-button').click(function () {
+$('.admin-notification-button').click(function() {
     $('.admin-notifications').addClass('hidden-div');
 });
 
 
 
 // Play Button Effect
-$('.trailer-item-info').children('i').hover(function () {
+$('.trailer-item-info').children('i').hover(function() {
     $(this).removeClass("far");
     $(this).toggleClass('fas');
 
-}, function () {
+}, function() {
     $(this).removeClass("fas");
     $(this).addClass('far');
 });
 
 //multi-step booking form script
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.form-tab2').hide();
 });
 
-$('.form-tab1').children('.form-btn').click(function () {
+$('.form-tab1').children('.form-btn').click(function() {
     $('.form-tab1').hide();
     $('.form-tab2').show();
 });
@@ -96,38 +96,58 @@ function validate() {
 
 //admin dashboard notidication panel
 
-$('.admin-login-info').children('i').hover(function () {
+$('.admin-login-info').children('i').hover(function() {
     $(this).removeClass("far");
     $(this).toggleClass('fas');
-}, function () {
+}, function() {
     $(this).removeClass("fas");
     $(this).addClass('far');
 });
 
 
-$('.fa-bell').on('click', function () {
+$('.fa-bell').on('click', function() {
     $('.admin-notifications').removeClass("hidden-div");
-}, function () {
+}, function() {
     $('.admin-notifications').addClass('hidden-div');
 });
 
 // showing and hiding booking panel
 
-$(".movie-info a").on('click', function () {
+$(".movie-info a").on('click', function() {
     $('.booking-wrap').show();
 });
 
-$(".booking-panel-section2").on('click', function () {
+$(".booking-panel-section2").on('click', function() {
     $('.booking-wrap').hide();
 });
 
 
-
-
-$(".admin-navigation-schedule").on('click', function () {
+$(".admin-navigation-schedule").on('click', function() {
     $('.admin-navigation-schedule-dropdwn').show();
 });
 
-$(".admin-navigation-schedule").on('click', function () {
+$(".admin-navigation-schedule").on('click', function() {
     $('.admin-navigation-schedule-dropdwn').hide();
 });
+
+function calc() {
+    var amount = document.getElementById("bookingType").value;
+    if (amount == "2D") {
+        amount = 3;
+        console.log(amount);
+    } else if (amount == "3D") {
+        amount = 4;
+
+        console.log(amount);
+    } else if (amount == "4DX") {
+        amount = 5;
+
+        console.log(amount);
+    }
+    var quantity = document.getElementById("bookingTicket").value;
+
+    var total = amount * quantity;
+    document.getElementById("total").value = total;
+    document.getElementById("bookingTotal").innerHTML = total;
+
+}

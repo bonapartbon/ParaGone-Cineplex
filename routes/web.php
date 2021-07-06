@@ -14,19 +14,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// public access
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', 'App\Http\Controllers\MovieController@display');
-
-Route::resource('admin/movies', 'App\Http\Controllers\MovieController')->middleware('is_admin');
-Route::resource('admin/bookings', 'App\Http\Controllers\BookingController')->middleware('is_admin');
-Route::resource('admin/users', 'App\Http\Controllers\UserController')->middleware('is_admin');
-Route::get('admin/upcomings', 'App\Http\Controllers\MovieController@upcoming')->middleware('is_admin');
-
+Route::get('/upcoming', 'App\Http\Controllers\MovieController@displayUp');
 Route::resource('booking', 'App\Http\Controllers\homepageBookingController');
-
-
-Route::get('/upcoming', function () {
-    return view('layouts/upcoming');
-});
 Route::get('/showtimes', function () {
     return view('layouts/showtimes');
 });
@@ -34,10 +26,12 @@ Route::get('/contact', function () {
     return view('layouts/contact');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/upcoming', [App\Http\Controllers\upcomingController::class, 'index'])->name('upcoming');
+// admin access
 Route::get('admin/dashboard', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::resource('admin/movies', 'App\Http\Controllers\MovieController')->middleware('is_admin');
+Route::resource('admin/bookings', 'App\Http\Controllers\BookingController')->middleware('is_admin');
+Route::resource('admin/users', 'App\Http\Controllers\UserController')->middleware('is_admin');
+Route::get('admin/upcomings', 'App\Http\Controllers\MovieController@upcoming')->middleware('is_admin');
 
 // Verify Register Route
-
 Auth::routes(['verify' => true]);
