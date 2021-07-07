@@ -14,7 +14,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::latest()->paginate(5);
+        $movies = Movie::orderBy('id','desc')->get();
         return view('admin.movies.index', compact('movies'));
     }
 
@@ -25,7 +25,7 @@ class MovieController extends Controller
      */
     public function upcoming()
     {
-        $movies = Movie::latest()->paginate(5);
+        $movies = Movie::orderBy('id','desc')->get();
         return view('admin.movies.upcoming', compact('movies'));
     }
 
@@ -65,7 +65,7 @@ class MovieController extends Controller
             return redirect()->route('movies.index')
             ->with('success', 'Movie Added Successfully.');
         }else {
-            return redirect()->route('upcomings.index')
+            return redirect()->route('movies.upcoming')
             ->with('success', 'Movie Added Successfully.');
         }
 

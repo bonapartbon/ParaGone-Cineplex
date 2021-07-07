@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 
@@ -15,7 +16,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::latest()->paginate(5);
+        $bookings = Booking::orderBy('id','desc')->get();
         return view('admin.bookings.index', compact('bookings'));
     }
 
@@ -27,7 +28,8 @@ class BookingController extends Controller
 
     public function create()
     {
-        return view('admin.bookings.createBooking');
+        $movies = Movie::all();
+        return view('admin.bookings.createBooking', compact('movies'));
     }
 
 
@@ -41,12 +43,12 @@ class BookingController extends Controller
     {
         $request->validate([
             'movieName'=>'required',
-            'bookingTheatre'=>'required',
             'bookingType'=>'required',
             'bookingDate'=>'required',
             'bookingTime'=>'required',
-            'bookingFName'=>'required',
-            'bookingLName'=>'required',
+            'bookingTicket'=>'required',
+            'bookingName'=>'required',
+            'bookingEmail'=>'required',
             'bookingPNumber'=>'required',
         ]);
 
@@ -75,7 +77,8 @@ class BookingController extends Controller
      */
     public function edit(Booking $booking)
     {
-        return view('admin.bookings.editBooking', compact('booking'));
+        $movies = Movie::all();
+        return view('admin.bookings.editBooking',['booking'=>$booking, 'movies'=>$movies]);
     }
 
     /**

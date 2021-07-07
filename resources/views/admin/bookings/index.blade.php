@@ -5,7 +5,7 @@
     <div class="container-fluid px-4 ">
 
         @if ($message = Session::get('success'))
-        <div class="alert alert-success pb-0">
+        <div class="alert alert-success pb-0 mt-3">
             <p>{{ $message }}</p>
         </div>
         @endif
@@ -16,8 +16,8 @@
         @endif
         <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
             <div class="card-header d-flex justify-content-between">
-                <h2 class="font-weight-bold">Category List</h2>
-                <button type="button" href="{{ route('bookings.create') }}" class="btn btn-dark ">+ Add New booking</button>
+                <h2 class="font-weight-bold">All Bookings</h2>
+                <a type="button" href="{{ route('bookings.create') }}" class="btn btn-dark my-1">+ Add New booking</a>
             </div>
 
             <div class="card-body ">
@@ -30,9 +30,10 @@
                             <th>Date</th>
                             <th>Time</th>
                             <th>Name</th>
-                            <th>Ticket</th>
                             <th>Email</th>
                             <th>Phone Number</th>
+                            <th>Ticket</th>
+                            <th>Total Price</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -45,10 +46,11 @@
                             <td>{{ $booking->bookingType }}</td>
                             <td>{{ $booking->bookingDate }}</td>
                             <td>{{ $booking->bookingTime }}</td>
-                            <td>{{ $booking->bookingTicket }}</td>
                             <td>{{ $booking->bookingName }}</td>
                             <td>{{ $booking->bookingEmail }}</td>
                             <td>{{ $booking->bookingPNumber }}</td>
+                            <th>{{ $booking->bookingTicket }}</th>
+                            <th>{{ $booking->total }}</th>
                             <td><a type="button" href="{{ route('bookings.edit', $booking->id) }}" class="btn btn-dark ">Edit</a></td>
                             <td>
                                 <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
@@ -62,7 +64,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="d-flex flex-row-reverse mx-3">{{$bookings->links()}}</div>
         </div>
     </div>
 </main>

@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+<section class="w3l-loginhny py-5" style="margin-top: 100px;">
+
+    <div class="container py-lg-3">
+        <div class="w3l-hny-login">
+            <div class="w3l-hny-login-info" style="max-width: 1000px;">
+                <h2>Verify Your Email Address</h2>
 
                 <div class="card-body">
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ __('A fresh verification link has been sent to your email address.') }}
+                    </div>
                     @endif
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
@@ -24,5 +25,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

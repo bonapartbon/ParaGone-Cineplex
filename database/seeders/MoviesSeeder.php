@@ -31,7 +31,7 @@ class MoviesSeeder extends Seeder
         [
             'movieImg' => 'mortal-kombat.jpg',
             'movieTitle' => 'Mortal Kombat',
-            'movieCurrent' => 'showing',
+            'movieCurrent' => 'upcoming',
             'movieGenre' => 'Thriller, Sci-Fi, Adventure, Action, Fantasy',
             'movieDuration' => '110',
             'movieRelDate' => '2021-04-01',
@@ -53,7 +53,7 @@ class MoviesSeeder extends Seeder
         [
             'movieImg' => 'f9.jpg',
             'movieTitle' => 'F9 (Fast & Furious 9)',
-            'movieCurrent' => 'showing',
+            'movieCurrent' => 'upcoming',
             'movieGenre' => 'Thriller, Adventure, Action, Crime',
             'movieDuration' => '145',
             'movieRelDate' => '2021-05-19',

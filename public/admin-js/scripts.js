@@ -24,3 +24,25 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function calc() {
+    var amount = document.getElementById("bookingType").value;
+    if (amount == "2D") {
+        amount = 3;
+        console.log(amount);
+    } else if (amount == "3D") {
+        amount = 4;
+
+        console.log(amount);
+    } else if (amount == "4DX") {
+        amount = 5;
+
+        console.log(amount);
+    }
+    var quantity = document.getElementById("bookingTicket").value;
+
+    var total = amount * quantity;
+    document.getElementById("total").value = total;
+    document.getElementById("bookingTotal").innerHTML = total;
+
+}
