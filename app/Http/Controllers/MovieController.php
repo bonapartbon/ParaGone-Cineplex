@@ -57,6 +57,7 @@ class MovieController extends Controller
             'movieDirector'=>'required',
             'movieActors'=>'required',
             'movieTrailer'=>'required',
+            'movieDesc'=>'required',
         ]);
 
         Movie::create($request->all());

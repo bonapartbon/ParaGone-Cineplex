@@ -37,9 +37,17 @@
           <label class="form-label">Director</label>
           <input type="text" name="movieDirector" class="form-control" placeholder="Movie Director" required value="{{ $movie->movieDirector }}">
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <label class="form-label">Actors</label>
           <input type="text" name="movieActors" class="form-control" placeholder="Movie Actors" required value="{{ $movie->movieActors }}">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Trailer URL</label>
+          <input type="text" name="movieTrailer" class="form-control" placeholder="Movie Trailer URL" required value="{{ $movie->movieTrailer }}">
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Description</label>
+          <input type="text" name="movieDes" class="form-control" placeholder="Movie Actors" required value="{{ $movie->movieDes }}">
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Movie Image</label>

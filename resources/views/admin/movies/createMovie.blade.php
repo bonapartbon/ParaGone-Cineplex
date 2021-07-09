@@ -43,6 +43,10 @@
           <label class="form-label">Trailer URL</label>
           <input type="text" name="movieTrailer" class="form-control" placeholder="Movie Trailer URL" required>
         </div>
+        <div class="col-md-12">
+          <label class="form-label">Description</label>
+          <input type="text" name="movieDes" class="form-control" placeholder="Movie Description" required>
+        </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Movie Image</label>
           <input class="form-control" type="file" name="movieImg" required>
