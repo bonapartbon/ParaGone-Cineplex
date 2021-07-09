@@ -21,7 +21,6 @@ class homepageBookingController extends Controller
         $data = Movie::latest()->get();
         return view('layouts.homepage')->with('movies', $data);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -49,6 +48,7 @@ class homepageBookingController extends Controller
             'bookingName' => 'required',
             'bookingEmail' => 'required',
             'bookingPNumber' => 'required',
+            'bookingStatus' => 'required',
         ]);
 
         Booking::create($request->all());
@@ -106,5 +106,10 @@ class homepageBookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function display()
+    {
+        $data = Booking::latest()->get();
+        return view('layouts.ticket',['bookings'=>$data]);
     }
 }

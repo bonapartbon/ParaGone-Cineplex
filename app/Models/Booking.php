@@ -9,7 +9,7 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['movieName', 'bookingType', 'bookingDate', 'bookingTime', 'bookingName', 'bookingTicket', 'bookingEmail', 'bookingPNumber', 'total'];
+    protected $fillable = ['movieName','bookingStatus', 'bookingType', 'bookingDate', 'bookingTime', 'bookingName', 'bookingTicket', 'bookingEmail', 'bookingPNumber', 'total'];
 
-    
+
 }

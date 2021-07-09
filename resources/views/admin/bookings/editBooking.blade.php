@@ -21,7 +21,7 @@
                         @endif
                         @endforeach
                     </select>
-                    
+
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Type</label>
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button type="submit" class="btn btn-dark btn-lg">Add</button>
+                    <button type="submit" class="btn btn-dark btn-lg">Save</button>
                 </div>
             </form>
         </div>

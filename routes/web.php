@@ -19,6 +19,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', 'App\Http\Controllers\MovieController@display');
 Route::get('/upcoming', 'App\Http\Controllers\MovieController@displayUp');
 Route::resource('/booking', 'App\Http\Controllers\homepageBookingController');
+Route::get('/ticket', 'App\Http\Controllers\homepageBookingController@display');
 Route::get('/about-us', function () {
     return view('layouts/about-us');
 });

@@ -27,7 +27,7 @@
                             <div class="col-lg-8 gen-left pl-lg-4 mt-lg-0 mt-5">
 
                                 <h3 class="hny-title">{{ $movie->movieTitle }}</h3>
-                                <p class="mt-2">MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.</p>
+                                <p class="mt-2">{{ $movie->movieDes }}</p>
 
                                 <div class="gen-right-1 mt-3">
                                     <div class="mb-1">
@@ -81,6 +81,10 @@
                                             <option>June 22, 2021</option>
                                             <option>June 23, 2021</option>
                                             <option>June 24, 2021</option>
+                                        </select>
+
+                                        <select name="bookingStatus" class="display-none" required>
+                                            <option value="Pending" selected></option>
                                         </select>
 
                                         <select name="bookingTime" class="form-control custom-select custom-select-lg" required>

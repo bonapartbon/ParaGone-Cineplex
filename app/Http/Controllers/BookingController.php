@@ -16,7 +16,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::orderBy('id','desc')->get();
+        $bookings = Booking::orderBy('bookingStatus','desc')->orderBy('id','desc')->get();
         return view('admin.bookings.index', compact('bookings'));
     }
 
@@ -44,6 +44,7 @@ class BookingController extends Controller
         $request->validate([
             'movieName'=>'required',
             'bookingType'=>'required',
+            'bookingStatus'=>'required',
             'bookingDate'=>'required',
             'bookingTime'=>'required',
             'bookingTicket'=>'required',
@@ -96,8 +97,14 @@ class BookingController extends Controller
 
         $booking->update($request->all());
 
-        return redirect()->route('bookings.index')
+
+        if ($request->bookingStatus == 'Approved'){
+            return redirect()->route('bookings.index')
+            ->with('success', 'Booking Approved.');
+        }else {
+            return redirect()->route('bookings.index')
             ->with('success', 'Booking Updated Successfully.');
+        }
     }
 
     /**
