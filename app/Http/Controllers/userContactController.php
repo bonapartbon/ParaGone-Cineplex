@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Contact;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactMail;
+use App\Models\Contact;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class userContactController extends Controller
 {
@@ -28,7 +27,7 @@ class userContactController extends Controller
 
         Contact::create($request->all());
         $details = Contact::latest()->get()->first();
-            Mail::to('paragonecineplex@gmail.com')->send(new ContactMail($details));
+        Mail::to('paragonecineplex@gmail.com')->send(new ContactMail($details));
         return redirect()->route('userContact')
             ->with('success', 'Message is submited successfully!');
     }
