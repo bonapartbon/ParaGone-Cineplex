@@ -52,12 +52,6 @@ class homepageBookingController extends Controller
         ]);
 
         Booking::create($request->all());
-        $details = Booking::latest()->get()->first();
-        if (Auth::check()) {
-            Mail::to(Auth::user()->email)->send(new TicketsMail($details));
-        } else {
-            Mail::to($request->bookingEmail)->send(new TicketsMail($details));
-        }
         return redirect()->route('booking.index')
             ->with('success', 'Tickets Booked Successfully, Please check your email for the ticket detail!');
     }
@@ -107,9 +101,50 @@ class homepageBookingController extends Controller
     {
         //
     }
+
     public function display()
     {
         $data = Booking::latest()->get();
-        return view('layouts.ticket',['bookings'=>$data]);
+        return view('layouts.ticket', ['bookings' => $data]);
+    }
+
+    public function buyNow(Request $request)
+    {
+        $request->validate([
+            'movieName' => 'required',
+            'bookingType' => 'required',
+            'bookingDate' => 'required',
+            'bookingTime' => 'required',
+            'bookingTicket' => 'required',
+            'bookingName' => 'required',
+            'bookingEmail' => 'required',
+            'bookingPNumber' => 'required',
+            'bookingStatus' => 'required',
+        ]);
+
+        Booking::create($request->all());
+
+        $details = Booking::latest()->get()->first();
+
+        return view('layouts.payment', ['bookings' => $details]);
+    }
+
+    public function success()
+    {
+        $details = Booking::latest()->get()->first();
+        $details->bookingStatus = 'Approved';
+        $details->save();
+        Mail::to($details->bookingEmail)->send(new TicketsMail($details));
+
+        return redirect()->route('booking.index')
+            ->with('success', 'Tickets Purchased Successfully, Please check your email for the ticket detail!');
+    }
+
+    public function fail()
+    {
+        $details = Booking::latest()->get()->first();
+        $details->delete();
+        return redirect()->route('booking.index')
+            ->with('error', 'Tickets purchased failed for some reasons.');
     }
 }

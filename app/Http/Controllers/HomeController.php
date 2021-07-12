@@ -44,4 +44,5 @@ class HomeController extends Controller
         return view('/admin/adminHome',['movie'=>$data, 'booking'=>$data1, 'user'=>$data2]);
 
     }
+    
 }

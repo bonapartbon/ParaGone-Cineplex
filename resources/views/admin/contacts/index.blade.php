@@ -5,7 +5,7 @@
     <div class="container-fluid px-4 ">
 
         @if ($message = Session::get('success'))
-        <div class="alert alert-success pb-0">
+        <div class="alert alert-success pb-0 mt-3">
             <p>{{ $message }}</p>
         </div>
         @endif
@@ -17,38 +17,33 @@
 
         <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
             <div class="card-header d-flex justify-content-between">
-                <h2 class="font-weight-bold">User List</h2>
+                <h2 class="font-weight-bold">All Contact</h2>
             </div>
 
             <div class="card-body ">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
-                            <th>Edit</th>
+                            <th>Phone Number</th>
+                            <th>Subject</th>
+                            <th>Message</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($contacts as $contact)
                         <tr>
-                            <th>{{ $user->id }}</th>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
+                            <th>{{ $contact->id }}</th>
+                            <td>{{ $contact->name }}</td>
+                            <td>{{ $contact->email }}</td>
+                            <td>{{ $contact->phoneNumber }}</td>
+                            <td>{{ $contact->subject }}</td>
+                            <td>{{ $contact->message }}</td>
                             <td>
-                                @if ($user->is_admin == 1)
-                                Admin
-                                @else
-                                User
-                                @endif
-                            </td>
-                            <td> <a type="button" href="{{ route('users.edit', $user->id) }}" class="btn btn-dark ">Edit</a>
-                            </td>
-                            <td>
-                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                <form action="{{ route('contact.destroy', $contact->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger ">Delete</button>

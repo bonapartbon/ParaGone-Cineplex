@@ -6,6 +6,8 @@ use App\Models\Booking;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TicketsMail;
 
 class BookingController extends Controller
 {
@@ -16,7 +18,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::orderBy('bookingStatus','desc')->orderBy('id','desc')->get();
+        $bookings = Booking::orderBy('bookingStatus', 'desc')->orderBy('id', 'desc')->get();
         return view('admin.bookings.index', compact('bookings'));
     }
 
@@ -42,15 +44,15 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'movieName'=>'required',
-            'bookingType'=>'required',
-            'bookingStatus'=>'required',
-            'bookingDate'=>'required',
-            'bookingTime'=>'required',
-            'bookingTicket'=>'required',
-            'bookingName'=>'required',
-            'bookingEmail'=>'required',
-            'bookingPNumber'=>'required',
+            'movieName' => 'required',
+            'bookingType' => 'required',
+            'bookingStatus' => 'required',
+            'bookingDate' => 'required',
+            'bookingTime' => 'required',
+            'bookingTicket' => 'required',
+            'bookingName' => 'required',
+            'bookingEmail' => 'required',
+            'bookingPNumber' => 'required',
         ]);
 
         Booking::create($request->all());
@@ -79,7 +81,7 @@ class BookingController extends Controller
     public function edit(Booking $booking)
     {
         $movies = Movie::all();
-        return view('admin.bookings.editBooking',['booking'=>$booking, 'movies'=>$movies]);
+        return view('admin.bookings.editBooking', ['booking' => $booking, 'movies' => $movies]);
     }
 
     /**
@@ -91,19 +93,18 @@ class BookingController extends Controller
      */
     public function update(Request $request, Booking $booking)
     {
-        $request -> validate([
-
-        ]);
+        $request->validate([]);
 
         $booking->update($request->all());
 
-
-        if ($request->bookingStatus == 'Approved'){
+        if ($request->bookingStatus == 'Approved') {
+            $details = $booking;
+            Mail::to($booking->bookingEmail)->send(new TicketsMail($details));
             return redirect()->route('bookings.index')
-            ->with('success', 'Booking Approved.');
-        }else {
+                ->with('success', 'Booking Approved.');
+        } else {
             return redirect()->route('bookings.index')
-            ->with('success', 'Booking Updated Successfully.');
+                ->with('success', 'Booking Updated Successfully.');
         }
     }
 
@@ -118,6 +119,6 @@ class BookingController extends Controller
         $booking->delete();
 
         return redirect()->route('bookings.index')
-        ->with('success', 'Booking Deleted Successfully.');
+            ->with('success', 'Booking Deleted Successfully.');
     }
 }

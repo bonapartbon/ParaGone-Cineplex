@@ -1,19 +1,17 @@
 @component('mail::message')
-# You've successfully book the ticket!
+# You've successfully book the ticket!<br>
 
-<li>Title: {{$details['movieName']}}</li>
-<li>Date: {{$details['bookingDate']}}</li>
-<li>Time: {{$details['bookingTime']}}</li>
-<li>Tickets: {{$details['bookingTicket']}}</li>
-<li>Total Price: ${{ number_format($details['total'],2) }}</li>
+<b>ID: {{$details['id']}}</b><br>
+<b>Title: {{$details['movieName']}}</b><br>
+<b>Date: {{$details['bookingDate']}}</b><br>
+<b>Time: {{$details['bookingTime']}}</b><br>
+<b>Tickets: {{$details['bookingTicket']}}</b><br>
+<b>Total Price: ${{ number_format($details['total'],2) }}</b><br>
 
-<b>Please collect the tickets 30mns before the movie start and pay at our counter.</b>
+<img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />
 
-<div align="center">{!! QrCode::size(150)->generate($details['id']); !!}</div>
+<small>Please collect the tickets 30mns before the movie start and pay at our counter.</small>
 
-<!-- @component('mail::button', ['url' => ''])
-Hii
-@endcomponent -->
 
 Thanks,<br>
 {{ config('app.name') }}

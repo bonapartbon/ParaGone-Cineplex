@@ -7,8 +7,8 @@
 </head>
 
 <body>
-
     @include('layouts.includes.header')
+
     <!--/breadcrumbs -->
     <div class="w3l-breadcrumbs">
         <nav id="breadcrumbs" class="breadcrumbs">
@@ -29,26 +29,37 @@
                 </div>
                 <div class="contact-view mt-lg-5 mt-4">
                     <div class="conhny-form-section">
-                        <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="formhny-sec">
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                        @endif
+                        @if ($message = Session::get('error'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                        @endif
+                        <form action="{{url('contact')}}" method="post" class="formhny-sec">
+                            @csrf
                             <div class="form-grids">
                                 <div class="form-input">
-                                    <input type="text" name="w3lName" id="w3lName" placeholder="Enter your name *" required="" />
+                                    <input type="text" name="name" placeholder="Enter your name *" required="" />
                                 </div>
                                 <div class="form-input">
-                                    <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Enter subject " required />
+                                    <input type="text" name="subject" placeholder="Enter subject " required />
                                 </div>
                                 <div class="form-input">
-                                    <input type="email" name="w3lSender" id="w3lSender" placeholder="Enter your email *" required />
+                                    <input type="email" name="email" placeholder="Enter your email *" required />
                                 </div>
                                 <div class="form-input">
-                                    <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Enter your Phone Number *" required />
+                                    <input type="text" name="phoneNumber" placeholder="Enter your Phone Number *" required />
                                 </div>
                             </div>
                             <div class="form-input mt-4">
-                                <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your query here" required=""></textarea>
+                                <textarea name="message" placeholder="Enter your Message here" required=""></textarea>
                             </div>
                             <div class="submithny text-right mt-4">
-                                <button class="btn read-button">Submit Message</button>
+                                <button type="submit" class="btn read-button">Submit Message</button>
                             </div>
                         </form>
                     </div>
@@ -90,7 +101,8 @@
             </div>
         </div>
         <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.5734929013533!2d104.89578755075172!3d11.58240269173736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109517bf7757d23%3A0x965c34888684bf1!2sParagon%20International%20University!5e0!3m2!1sen!2skh!4v1625685201308!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>        </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.5734929013533!2d104.89578755075172!3d11.58240269173736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109517bf7757d23%3A0x965c34888684bf1!2sParagon%20International%20University!5e0!3m2!1sen!2skh!4v1625685201308!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </section>
     <!-- /contact1 -->
     @include('layouts.includes.footer')

@@ -18,6 +18,18 @@ class MoviesSeeder extends Seeder
 
         $movies = [
             [
+                'movieImg' => 'blackwidow.jpg',
+                'movieTitle' => "Black Widow",
+                'movieCurrent' => 'showing',
+                'movieGenre' => 'Drama, Thriller, Action, Adventure',
+                'movieDuration' => '134',
+                'movieRelDate' => '2021-07-07',
+                'movieDirector' => 'Cate Shortland',
+                'movieActors' => "Scarlett Johansson, Florence Pugh, Rachel Weisz",
+                'movieDes' => "A film about Natasha Romanoff in her quests between the films Civil War and Infinity War.",
+                'movieTrailer' => "https://www.youtube.com/embed/Fp9pNPdNwjI",
+            ],
+            [
                 'movieImg' => 'conjuring.jpg',
                 'movieTitle' => 'The Conjuring: The Devil Made Me Do It',
                 'movieCurrent' => 'upcoming',
@@ -26,7 +38,7 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-05-26',
                 'movieDirector' => 'Michael Chaves',
                 'movieActors' => "Patrick Wilson, Vera Farmiga, 1Ruairi O'Connor",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
+                'movieDes' => "The Warrens investigate a murder that may be linked to a demonic possession.",
                 'movieTrailer' => "https://www.youtube.com/embed/h9Q4zZS2v1k",
             ],
             [
@@ -39,7 +51,7 @@ class MoviesSeeder extends Seeder
                 'movieDirector' => 'Simon McQuoid',
                 'movieActors' => "Tadanobu Asano, Hiroyuki Sanada, Josh Lawson, Nathan Jones, Mehcad Brooks",
                 'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieTrailer' => "https://youtube.com/embed/QJHY4ggYCk4",
             ],
             [
                 'movieImg' => 'cruella.jpg',
@@ -50,8 +62,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-05-18',
                 'movieDirector' => 'Craig Gillespie',
                 'movieActors' => "Emma Stone, Mark Strong, Emma Thompson, Joel Fry",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "A live-action prequel feature film following a young Cruella de Vil.",
+                'movieTrailer' => "https://www.youtube.com/embed/gmRKv7n2If8",
             ],
             [
                 'movieImg' => 'f9.jpg',
@@ -62,8 +74,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-05-19',
                 'movieDirector' => 'Justin Lin',
                 'movieActors' => "Kurt Russell, Charlize Theron, Shad Moss, Helen Mirren, Vin Diesel",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "Cipher enlists the help of Jakob, Dom's younger brother to take revenge on Dom and his team.",
+                'movieTrailer' => "https://www.youtube.com/embed/fEE4RO-_jug",
             ],
             [
                 'movieImg' => 'edgeoftheworld.jpg',
@@ -74,8 +86,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-06-04',
                 'movieDirector' => 'Michael Haussman',
                 'movieActors' => "Jonathan Rhys Meyers, Dominic Monaghan, Hannah New, Josie Ho",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "The adventures of Sir James Brooke, who defied the British Empire to rule a jungle kingdom in 1840s Borneo, embarked on a lifelong crusade to end piracy, slavery and head-hunting, and inspired LORD JIM and THE MAN WHO WOULD BE KING.",
+                'movieTrailer' => "https://www.youtube.com/embed/ycgW26bzjq0",
             ],
             [
                 'movieImg' => 'flashback.jpg',
@@ -86,8 +98,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2020-10-08',
                 'movieDirector' => 'Christopher MacBride',
                 'movieActors' => "Keir Gilchrist, Emory Cohen, Dylan Obrien, Maika Monroe, Landon Norris",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "After a chance encounter with a man forgotten from his youth, Fred literally and metaphorically journeys into his past.",
+                'movieTrailer' => "https://www.youtube.com/embed/JMvJtpz4Bbk",
             ],
             [
                 'movieImg' => 'Without Remorse.jpg',
@@ -98,8 +110,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-04-30',
                 'movieDirector' => 'Stefano Sollima',
                 'movieActors' => "Jamie Bell, Cam Gigandet, Guy Pearce, Todd Lasance, Michael B Jordan",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "An elite Navy SEAL, goes on a path to avenge his wife's murder only to find himself inside of a larger conspiracy.",
+                'movieTrailer' => "https://www.youtube.com/embed/e-rw2cxFVLg",
             ],
             [
                 'movieImg' => 'loki.jpg',
@@ -110,8 +122,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-06-09',
                 'movieDirector' => 'Marvel Studios',
                 'movieActors' => "Owen Wilson, Richard E Grant, Gugu Mbatha Raw, Tom Hiddleston",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "The mercurial villain Loki resumes his role as the God of Mischief in a new series that takes place after the events of “Avengers: Endgame.”",
+                'movieTrailer' => "https://www.youtube.com/embed/nW948Va-l10",
             ],
             [
                 'movieImg' => 'rainfall.jpg',
@@ -122,8 +134,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-10-30',
                 'movieDirector' => 'Luke Sparke',
                 'movieActors' => "Jason Isaacs, Mark Coles Smith, Ken Jeong, Temuera Morrison, Daniel Gillies",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "Two years after aliens land on Earth, survivors from Sydney, Australia, fight in a desperate war as the number of casualties continue to grow.",
+                'movieTrailer' => "https://www.youtube.com/embed/Os0gnI19So8",
             ],
             [
                 'movieImg' => 'thewomaninthewindow.jpg',
@@ -134,8 +146,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-05-14',
                 'movieDirector' => 'Joe Wright',
                 'movieActors' => "Gary Oldman, Julianne Moore, Anthony Mackie, Jennifer Jason Leigh, Amy Adams",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "An agoraphobic woman living alone in New York begins spying on her new neighbors, only to witness a disturbing act of violence.",
+                'movieTrailer' => "https://www.youtube.com/embed/J0hTmzISOlQ",
             ],
             [
                 'movieImg' => 'lupin.jpg',
@@ -146,8 +158,8 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2021-06-11',
                 'movieDirector' => 'Marcela Said, Ludovic Bernard, Louis Leterrier, Hugo Gélin',
                 'movieActors' => "Ludivine Sagnier, Omar Sy, Nicole Garcia, Clotilde Hesme, Antoine Gouy",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.",
+                'movieTrailer' => "https://www.youtube.com/embed/ga0iTWXCGa0",
             ],
             [
                 'movieImg' => 'endgame.jpg',
@@ -156,10 +168,10 @@ class MoviesSeeder extends Seeder
                 'movieGenre' => 'Sci-Fi, Adventure, Action, Fantasy',
                 'movieDuration' => '181',
                 'movieRelDate' => '2019-04-22',
-                'movieDirector' => 'Anthony Russo,Joe Russo',
+                'movieDirector' => 'Anthony Russo, Joe Russo',
                 'movieActors' => "Don Cheadle, Anthony Mackie, Rene Russo, Mark Ruffalo, Chris Hemsworth, Scarlett Johansson, Elizabeth Olsen, Tilda Swinton, Brie Larson",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
+                'movieTrailer' => "https://www.youtube.com/embed/TcMBFSGVi1c",
             ],
             [
                 'movieImg' => 'lucifer.jpg',
@@ -170,10 +182,9 @@ class MoviesSeeder extends Seeder
                 'movieRelDate' => '2020-02-21',
                 'movieDirector' => 'Tom Kapinos',
                 'movieActors' => "Tom Kapinos",
-                'movieDes' => "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
-                'movieTrailer' => "https://www.youtube.com/embed/NYH2sLid0Zc",
+                'movieDes' => "Lucifer Morningstar has decided he's had enough of being the dutiful servant in Hell and decides to spend some time on Earth to better understand humanity. He settles in Los Angeles - the City of Angels.",
+                'movieTrailer' => "https://www.youtube.com/embed/X4bF_quwNtw",
             ],
-
         ];
 
         Movie::insert($movies);

@@ -12,7 +12,7 @@
     <!--/genre-single-->
     <section class="w3l-text-8 genre-single">
         <div class="text-bg-image">
-            <iframe width="100%" height="450" src="https://www.youtube.com/embed/fEE4RO-_jug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="450" src="{{$movie->movieTrailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="container py-5">
             <div class="d-grid-1 py-lg-4">
@@ -54,15 +54,15 @@
                         </div>
                     </div>
 
-
+                    @if ($movie->movieCurrent == "showing")
                     <div class="w3l-blog-single comments mt-5">
-
-
                         <div class="testi-top mt-5 pt-3">
                             <h3 class="post-content-title">SECURE YOUR SEATS</h3>
                             <div class="form-commets mt-4">
                                 <form method="POST">
                                     @csrf
+                                  
+
                                     <input type="text" name="movieName" value="{{ $movie->movieTitle }}" hidden>
                                     <input type="text" name="total" id="total" hidden>
 
@@ -122,34 +122,29 @@
                                         @endif
                                     </div>
 
-                                    <div class="total-form mt-3">
-                                        <h3 class="text-left align-center pl-2">Total: $<span id="bookingTotal">0</span></h3>
-                                        <div class="text-right">
-                                            <button class="btn read-button" type="submit" formaction="{{route('booking.store')}}">Book Now!</button>
-                                        </div>
+                                    <div class="mt-3">
+                                        <h3 class="text-center align-center pl-2">Total: $<span id="bookingTotal">0</span></h3>
                                     </div>
-
-
+                                    <button class="btn read-button col-12 mt-3" type="submit" formaction="{{route('booking.store')}}">Book Now!</button>
+                                    <hr class="mb-2 mt-4">
+                                    <p class="text-center">or Buy with PayPal</p>
+                                    <button class="btn read-button col-12 mt-2" type="submit" formaction="{{url('/payment')}}">Buy Now!</button>
                                 </form>
+
+
                             </div>
                         </div>
                     </div>
+                    @else
+                    <div class="alert alert-warning" role="alert">
+                        <p>Booking is not available for Upcoming Movies!<a href="/"> Back to Home</a></p>
+                    </div>
 
+                    @endif
                 </div>
             </div>
         </div>
-
-
-
     </section>
-
-    <!--//genre-single-->
-    <div style="margin: 8px auto; display: block; text-align:center;">
-
-        <!---728x90--->
-
-
-    </div>
 
     @include('layouts.includes.footer')
 </body>

@@ -20,12 +20,17 @@ Route::get('/', 'App\Http\Controllers\MovieController@display');
 Route::get('/upcoming', 'App\Http\Controllers\MovieController@displayUp');
 Route::resource('/booking', 'App\Http\Controllers\homepageBookingController');
 Route::get('/ticket', 'App\Http\Controllers\homepageBookingController@display');
-Route::get('/about-us', function () {
-    return view('layouts/about-us');
-});
+Route::post('/contact', [App\Http\Controllers\userContactController::class, 'store'])->name('userContact');
 Route::get('/contact', function () {
     return view('layouts/contact');
 });
+Route::get('/about-us', function () {
+    return view('layouts/about-us');
+});
+Route::post('/payment', 'App\Http\Controllers\homepageBookingController@buyNow');
+Route::get('/payment/success', 'App\Http\Controllers\homepageBookingController@success');
+Route::get('/payment/fail', 'App\Http\Controllers\homepageBookingController@fail');
+
 
 // admin access
 Route::get('admin/dashboard', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
@@ -33,6 +38,7 @@ Route::resource('admin/movies', 'App\Http\Controllers\MovieController')->middlew
 Route::resource('admin/bookings', 'App\Http\Controllers\BookingController')->middleware('is_admin');
 Route::resource('admin/users', 'App\Http\Controllers\UserController')->middleware('is_admin');
 Route::get('admin/upcomings', 'App\Http\Controllers\MovieController@upcoming')->middleware('is_admin')->name('movies.upcoming');
+Route::resource('admin/contact', 'App\Http\Controllers\ContactController')->middleware('is_admin');
 
 // Verify Register Route
 Auth::routes(['verify' => true]);

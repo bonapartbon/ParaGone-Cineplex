@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
-class UserController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->get();
-        return view('admin.users.index', compact('users'));
+        $contact = Contact::latest()->get();
+        return view('admin.contacts.index')->with('contacts', $contact);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return redirect()->route('users.index');
+        //
     }
 
     /**
@@ -58,8 +58,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('admin.users.editUser')->with('user', $user);
+        //
     }
 
     /**
@@ -69,16 +68,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $request -> validate([
-
-        ]);
-
-        $user->update($request->all());
-
-        return redirect()->route('users.index')
-            ->with('success', 'User Updated Successfully.');
+        //
     }
 
     /**
@@ -89,10 +81,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->route('users.index')
-        ->with('success', 'User Deleted Successfully.');
+        $contact = Contact::find($id);
+        $contact->delete();
+        return redirect()->route('contact.index')
+        ->with('success', 'Contact Deleted Successfully.');
     }
 }
