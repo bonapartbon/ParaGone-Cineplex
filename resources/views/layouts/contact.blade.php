@@ -43,7 +43,7 @@
                             @csrf
                             <div class="form-grids">
                                 <div class="form-input">
-                                    <input type="text" name="name" placeholder="Enter your name *" required="" />
+                                    <input type="text" name="name" placeholder="Enter your name *" required />
                                 </div>
                                 <div class="form-input">
                                     <input type="text" name="subject" placeholder="Enter subject " required />
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="form-input mt-4">
-                                <textarea name="message" placeholder="Enter your Message here" required=""></textarea>
+                                <textarea name="message" placeholder="Enter your Message here" required></textarea>
                             </div>
                             <div class="submithny text-right mt-4">
                                 <button type="submit" class="btn read-button">Submit Message</button>
