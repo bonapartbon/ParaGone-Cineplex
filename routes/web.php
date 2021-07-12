@@ -20,10 +20,10 @@ Route::get('/', 'App\Http\Controllers\MovieController@display');
 Route::get('/upcoming', 'App\Http\Controllers\MovieController@displayUp');
 Route::resource('/booking', 'App\Http\Controllers\homepageBookingController');
 Route::get('/ticket', 'App\Http\Controllers\homepageBookingController@display');
-Route::post('/contact', [App\Http\Controllers\userContactController::class, 'store'])->name('userContact');
+Route::post('/contact', [App\Http\Controllers\userContactController::class, 'store']);
 Route::get('/contact', function () {
     return view('layouts/contact');
-});
+})->name('userContact');
 Route::get('/about-us', function () {
     return view('layouts/about-us');
 });
