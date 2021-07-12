@@ -8,6 +8,9 @@ use App\Models\Booking;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\TicketsMail;
+use App\Mail\AdminPurchasedMail;
+use App\Mail\AdminBookedMail;
+
 
 class homepageBookingController extends Controller
 {
@@ -53,8 +56,10 @@ class homepageBookingController extends Controller
         ]);
 
         Booking::create($request->all());
+        $details = Booking::latest()->get()->first();
+        Mail::to('paragonecineplex@gmail.com')->send(new AdminBookedMail($details));
         return redirect()->route('booking.index')
-            ->with('success', 'Tickets Booked Successfully, Please check your email for the ticket detail!');
+            ->with('success', 'Your tickets are being processed, you will receive your email once we approve!');
     }
 
     /**
@@ -137,6 +142,7 @@ class homepageBookingController extends Controller
         $details->status = 'Paid';
         $details->save();
         Mail::to($details->bookingEmail)->send(new TicketsMail($details));
+        Mail::to('paragonecineplex@gmail.com')->send(new AdminPurchasedMail($details));
 
         return redirect()->route('booking.index')
             ->with('success', 'Tickets Purchased Successfully, Please check your email for the ticket detail!');

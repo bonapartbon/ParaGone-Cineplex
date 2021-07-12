@@ -34,42 +34,45 @@
                 <div class="w3l-populohny-grids">
 
                     @if (auth()->check())
-                        <p class="display-none">
-                            <span>{{ $totalBooking = 0 }}</span>
-                        </p>
-                        @foreach ($bookings as $booking)
-                            @if (auth()->user()->email == $booking->bookingEmail)
-                                <p class="display-none">
-                                    <span>{{ $totalBooking = $loop->index + 1 }}</span>
-                                </p>
-                            @endif
+                    <p class="display-none">
+                        <span>{{ $totalBooking = 0 }}</span>
+                    </p>
+                    @foreach ($bookings as $booking)
+                    @if (auth()->user()->email == $booking->bookingEmail)
+                    <p class="display-none">
+                        <span>{{ $totalBooking = $loop->index + 1 }}</span>
+                    </p>
+                    @endif
 
-                        @endforeach
-                        @if ($totalBooking > 0)
-                            @foreach ($bookings as $booking)
-                                @if (auth()->user()->email == $booking->bookingEmail)
-                                    <div class="card" style="width: 16rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ticket</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Movie: {{ $booking->movieName }}
-                                            </h6>
-                                            <p class="card-subtitle mb-2 text-muted">Type: {{ $booking->bookingType }}
-                                            </p>
-                                            <p class="card-subtitle mb-2 text-muted">Time: {{ $booking->bookingTime }}
-                                            </p>
-                                            <p class="card-subtitle mb-2 text-muted">Seat:
-                                                {{ $booking->bookingTicket }}
-                                            </p>
-                                            <p class="card-subtitle mb-2 text-muted">Status:
-                                                {{ $booking->status }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        @else
-                            <p>You don't have any ticket yet.</p>
-                        @endif
+                    @endforeach
+                    @if ($totalBooking > 0)
+                    @foreach ($bookings as $booking)
+                    @if (auth()->user()->email == $booking->bookingEmail)
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Ticket</h5>
+                            <p class="card-subtitle mb-2 text-muted">Movie: {{ $booking->movieName }}
+                            </p>
+                            <p class="card-subtitle mb-2 text-muted">Type: {{ $booking->bookingType }}
+                            </p>
+                            <p class="card-subtitle mb-2 text-muted">Time: {{ $booking->bookingTime }}
+                            </p>
+                            <p class="card-subtitle mb-2 text-muted">Seat:
+                                {{ $booking->bookingTicket }}
+                            </p>
+                            <p class="card-subtitle mb-2 text-muted">Total Price:
+                                ${{ number_format($booking->total,2) }}
+                            </p>
+                            <p class="card-subtitle mb-2 text-muted">Status:
+                                {{ $booking->status }}
+                            </p>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+                    @else
+                    <p>You don't have any ticket yet.</p>
+                    @endif
                     @endif
                 </div>
             </div>

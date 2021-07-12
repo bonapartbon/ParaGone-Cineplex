@@ -20,7 +20,7 @@
                     <a type="button" href="{{ route('bookings.create') }}" class="btn btn-dark my-1">+ Add New booking</a>
                 </div>
 
-                <div class="card-body ">
+                <div class="card-body table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>

@@ -17,8 +17,8 @@
           <label class="form-label">Current</label>
           <select class="form-select" name="movieCurrent" aria-label="Default select example" value="{{ $movie->movieCurrent}}" required>
             <option value="" disabled selected>Currently</option>
-            <option name="movieCurrent" value="showing">showing</option>
-            <option name="movieCurrent" value="upcoming">upcoming</option>
+            <option name="movieCurrent" value="showing">Showing</option>
+            <option name="movieCurrent" value="upcoming">UpComing</option>
           </select>
         </div>
         <div class="col-md-4">

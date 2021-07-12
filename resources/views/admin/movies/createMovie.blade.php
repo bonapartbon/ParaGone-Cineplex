@@ -16,7 +16,7 @@
           <select class="form-select" name="movieCurrent" aria-label="Default select example" required>
             <option value="" disabled selected>Currently</option>
             <option name="movieCurrent" value="showing">Showing</option>
-            <option name="movieCurrent" value="upcoming">Up Coming</option>
+            <option name="movieCurrent" value="upcoming">UpComing</option>
           </select>
         </div>
         <div class="col-md-4">

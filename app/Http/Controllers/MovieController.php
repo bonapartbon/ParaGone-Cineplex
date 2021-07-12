@@ -131,7 +131,7 @@ class MovieController extends Controller
             return redirect()->route('movies.index')
             ->with('success', 'Movie Updated Successfully.');
         }else {
-            return redirect()->route('upcomings.index')
+            return redirect()->route('movies.upcoming')
             ->with('success', 'Movie Updated Successfully.');
         }
     }

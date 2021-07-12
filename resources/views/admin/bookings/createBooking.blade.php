@@ -7,6 +7,13 @@
             <form class="row g-3 mx-2" action="{{ route('bookings.index') }}" method="POST">
                 <h2>Add New Booking</h2>
                 @csrf
+                <select name="bookingStatus" class="display-none" required>
+                    <option value="Pending" selected></option>
+                </select>
+                <select name="status" class="display-none" required>
+                    <option value="Unpaid" selected></option>
+                </select>
+
                 <div class="col-md-4">
                     <label class="form-label">Title</label>
                     <select name="movieName" class="form-select" aria-label="Default select example" required>

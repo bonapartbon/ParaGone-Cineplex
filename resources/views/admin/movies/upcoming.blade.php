@@ -5,7 +5,7 @@
     <div class="container-fluid px-4">
     
         @if ($message = Session::get('success'))
-        <div class="alert alert-success pb-0">
+        <div class="alert alert-success pb-0 mt-3">
             <p>{{ $message }}</p>
         </div>
         @endif
@@ -17,7 +17,7 @@
 
         <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
             <div class="card-header d-flex justify-content-between">
-                <h2 class="font-weight-bold">Up Coming Movies</h2>
+                <h2 class="font-weight-bold">UpComing Movies</h2>
                 <a type="button" href="{{ route('movies.create') }}" class="btn btn-dark my-1">+ Add New Movie</a>
             </div>
             <div class="card-body table-responsive">
