@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\TicketsMail;
 use App\Mail\AdminPurchasedMail;
 use App\Mail\AdminBookedMail;
-
+use App\Mail\PurchasedMail;
 
 class homepageBookingController extends Controller
 {
@@ -141,7 +141,7 @@ class homepageBookingController extends Controller
         $details->bookingStatus = 'Approved';
         $details->status = 'Paid';
         $details->save();
-        Mail::to($details->bookingEmail)->send(new TicketsMail($details));
+        Mail::to($details->bookingEmail)->send(new PurchasedMail($details));
         Mail::to('paragonecineplex@gmail.com')->send(new AdminPurchasedMail($details));
 
         return redirect()->route('booking.index')

@@ -8,7 +8,7 @@
 <li>Subject: {{$details['subject']}}</li>
 <li>Message: ${{ $details['message'] }}</li>
 
-@component('mail::button', ['url' => 'http://127.0.0.1:8000/admin/contact'])
+@component('mail::button', ['url' => 'http://paragone-cineplex.herokuapp.com/admin/contact'])
 View Contact List
 @endcomponent
 
