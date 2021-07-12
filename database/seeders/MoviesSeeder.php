@@ -44,7 +44,7 @@ class MoviesSeeder extends Seeder
             [
                 'movieImg' => 'mortal-kombat.jpg',
                 'movieTitle' => 'Mortal Kombat',
-                'movieCurrent' => 'upcoming',
+                'movieCurrent' => 'showing',
                 'movieGenre' => 'Thriller, Sci-Fi, Adventure, Action, Fantasy',
                 'movieDuration' => '110',
                 'movieRelDate' => '2021-04-01',
