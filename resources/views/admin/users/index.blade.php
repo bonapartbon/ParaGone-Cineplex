@@ -5,7 +5,7 @@
     <div class="container-fluid px-4 ">
 
         @if ($message = Session::get('success'))
-        <div class="alert alert-success pb-0">
+        <div class="alert alert-success pb-0 mt-3">
             <p>{{ $message }}</p>
         </div>
         @endif
