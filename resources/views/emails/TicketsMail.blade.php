@@ -8,10 +8,7 @@
 <b>Tickets: {{$details['bookingTicket']}}</b><br>
 <b>Total Price: ${{ number_format($details['total'],2) }}</b><br>
 
-<img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />
-
 <small>Please collect the tickets 30mns before the movie start and pay at our counter.</small>
-
 
 Thanks,<br>
 {{ config('app.name') }}
