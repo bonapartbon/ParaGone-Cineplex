@@ -60,6 +60,9 @@
                                             <p class="card-subtitle mb-2 text-muted">Seat:
                                                 {{ $booking->bookingTicket }}
                                             </p>
+                                            <p class="card-subtitle mb-2 text-muted">Status:
+                                                {{ $booking->status }}
+                                            </p>
                                         </div>
                                     </div>
                                 @endif

@@ -61,7 +61,7 @@
                             <div class="form-commets mt-4">
                                 <form method="POST">
                                     @csrf
-                                  
+
 
                                     <input type="text" name="movieName" value="{{ $movie->movieTitle }}" hidden>
                                     <input type="text" name="total" id="total" hidden>
@@ -85,6 +85,9 @@
 
                                         <select name="bookingStatus" class="display-none" required>
                                             <option value="Pending" selected></option>
+                                        </select>
+                                        <select name="status" class="display-none" required>
+                                            <option value="Unpaid" selected></option>
                                         </select>
 
                                         <select name="bookingTime" class="form-control custom-select custom-select-lg" required>

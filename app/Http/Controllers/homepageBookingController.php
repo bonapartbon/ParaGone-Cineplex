@@ -49,6 +49,7 @@ class homepageBookingController extends Controller
             'bookingEmail' => 'required',
             'bookingPNumber' => 'required',
             'bookingStatus' => 'required',
+            'status' => 'required',
         ]);
 
         Booking::create($request->all());
@@ -133,6 +134,7 @@ class homepageBookingController extends Controller
     {
         $details = Booking::latest()->get()->first();
         $details->bookingStatus = 'Approved';
+        $details->status = 'Paid';
         $details->save();
         Mail::to($details->bookingEmail)->send(new TicketsMail($details));
 

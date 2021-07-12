@@ -36,53 +36,66 @@
                                 <th>Total Price</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
-                                <th>Approve Ticket</th>
+                                <th>Approve</th>
+                                <th>Payment</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($bookings as $booking)
                                 {{-- @if ($booking->bookingStatus == 'Pending') --}}
-                                    <tr>
-                                        <th>{{ $booking->id }}</th>
-                                        <td>{{ $booking->movieName }}</td>
-                                        <td>{{ $booking->bookingType }}</td>
-                                        <td>{{ $booking->bookingDate }}</td>
-                                        <td>{{ $booking->bookingTime }}</td>
-                                        <td>{{ $booking->bookingName }}</td>
-                                        <td>{{ $booking->bookingEmail }}</td>
-                                        <td>{{ $booking->bookingPNumber }}</td>
-                                        <th>{{ $booking->bookingTicket }}</th>
-                                        <th>{{ $booking->total }}</th>
-                                        <td><a type="button" href="{{ route('bookings.edit', $booking->id) }}"
-                                                class="btn btn-dark ">Edit</a></td>
-                                        <td>
-                                            <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
+                                <tr>
+                                    <th>{{ $booking->id }}</th>
+                                    <td>{{ $booking->movieName }}</td>
+                                    <td>{{ $booking->bookingType }}</td>
+                                    <td>{{ $booking->bookingDate }}</td>
+                                    <td>{{ $booking->bookingTime }}</td>
+                                    <td>{{ $booking->bookingName }}</td>
+                                    <td>{{ $booking->bookingEmail }}</td>
+                                    <td>{{ $booking->bookingPNumber }}</td>
+                                    <th>{{ $booking->bookingTicket }}</th>
+                                    <th>{{ $booking->total }}</th>
+                                    <td><a type="button" href="{{ route('bookings.edit', $booking->id) }}"
+                                            class="btn btn-dark ">Edit</a></td>
+                                    <td>
+                                        <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger ">Delete</button>
+                                        </form>
+                                    </td>
+                                    @if ($booking->bookingStatus == 'Pending')
+                                        <td class="mr-5">
+                                            <form action="{{ route('bookings.update', $booking->id) }}" method="POST">
                                                 @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger ">Delete</button>
+                                                @method('PUT')
+                                                <select name="bookingStatus" class="display-none" required>
+                                                    <option value="Approved" selected></option>
+                                                </select>
+                                                <button type="submit" class="btn btn-secondary px-3 mr-5">Approve</button>
                                             </form>
                                         </td>
-                                        @if ($booking->bookingStatus == 'Pending')
-                                            <td class="mr-5">
-                                                <form action="{{ route('bookings.update', $booking->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <select name="bookingStatus" class="display-none" required>
-                                                        <option value="Approved" selected></option>
-                                                    </select>
-                                                    <button type="submit"
-                                                        class="btn btn-secondary px-3 mr-5">Approve</button>
-                                                </form>
-                                            </td>
-                                        @endif
-                                        @if ($booking->bookingStatus == 'Approved')
-                                            <td>
-                                                <a type="button" class="btn btn-success isDisabled">Approved</a>
-                                            </td>
-                                        {{-- @endif --}}
-                                    </tr>
-                                @endif
+                                    @elseif ($booking->bookingStatus == 'Approved')
+                                        <td>
+                                            <a type="button" class="btn btn-success isDisabled">Approved</a>
+                                        </td>
+                                    @endif
+                                    @if ($booking->status == 'Unpaid')
+                                        <td class="mr-5">
+                                            <form action="{{ route('bookings.update', $booking->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <select name="status" class="display-none" required>
+                                                    <option value="Paid" selected></option>
+                                                </select>
+                                                <button type="submit" class="btn btn-secondary px-3 mr-5">Pay</button>
+                                            </form>
+                                        </td>
+                                    @elseif ($booking->status == 'Paid')
+                                        <td>
+                                            <a type="button" class="btn btn-success isDisabled">Paid</a>
+                                        </td>
+                                    @endif
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

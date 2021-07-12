@@ -53,6 +53,7 @@ class BookingController extends Controller
             'bookingName' => 'required',
             'bookingEmail' => 'required',
             'bookingPNumber' => 'required',
+            'status' => 'required',
         ]);
 
         Booking::create($request->all());
