@@ -41,7 +41,7 @@
                         <div class="card bg-secondary text-white mb-4">
                             <div class="card-body">Revenue:
 
-                                <b class="float-end"> ${{ number_format(\App\Models\Booking::where('status', 'paid')->sum('total'),2) }} </b>
+                                <b class="float-end"> ${{ number_format(\App\Models\Booking::where('status', 'Paid')->sum('total'),2) }} </b>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-white stretched-link" href="{{url('admin/bookings')}}">View Details</a>
@@ -55,12 +55,12 @@
                             <h5 class="text-center mt-3">Movies</h5>
                             <div class="card-body d-flex justify-content-between text-center">
                                 <div class="col-6">
-                                    <h1>{{ \App\Models\Movie::where('movieCurrent', 'Showing')->count('movieTitle') }}</h1>
+                                    <h1>{{ \App\Models\Movie::where('movieCurrent', 'showing')->count('id') }}</h1>
                                     <div>Showing</div>
                                 </div>
                                 <div style="border-right: 1px solid #333;"></div>
                                 <div class="col-6">
-                                    <h1>{{ \App\Models\Movie::where('movieCurrent', 'Upcoming')->count('movieTitle') }}</h1>
+                                    <h1>{{ \App\Models\Movie::where('movieCurrent', 'upcoming')->count('id') }}</h1>
                                     <div>Upcoming</div>
                                 </div>
                             </div>
