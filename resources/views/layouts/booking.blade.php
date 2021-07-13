@@ -22,7 +22,7 @@
                     <div class="genre-single-page my-lg-5 my-4">
                         <div class="row ab-grids-sec align-items-center">
                             <div class="col-lg-4 gen-right">
-                                <img class="img-fluid" src="/img/{{ $movie->movieImg }}">
+                                <img class="img-fluid" src="{{ $movie->movieImg }}">
                             </div>
                             <div class="col-lg-8 gen-left pl-lg-4 mt-lg-0 mt-5">
 
