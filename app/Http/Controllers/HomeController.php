@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Movie::all();
+        $data = Movie::orderBy('id','desc')->get();
         return view('layouts.homepage', ['movies' => $data]);
     }
 
