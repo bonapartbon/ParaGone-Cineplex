@@ -41,5 +41,6 @@ Route::get('admin/upcomings', 'App\Http\Controllers\MovieController@upcoming')->
 Route::resource('admin/contact', 'App\Http\Controllers\ContactController')->middleware('is_admin');
 
 // Verify Register Route
+Auth::routes(['verify' => true]);
 Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
