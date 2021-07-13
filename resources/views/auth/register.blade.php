@@ -12,7 +12,7 @@
                     <p>{{ $message }}</p>
                 </div>
                 @endif
-                <form method="POST" action="{{ secure_route('register') }}">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <label>Name</label>
                     <div class="input-group">
@@ -32,7 +32,7 @@
                     </div>
                     <button class="btn read-button btn-login" type="submit">Register</button>
                 </form>
-                <p class="account1">Already have an account? <a href="{{ secure_route('login') }}">Login Now</a></p>
+                <p class="account1">Already have an account? <a href="{{ route('login') }}">Login Now</a></p>
             </div>
         </div>
     </div>
