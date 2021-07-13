@@ -8,7 +8,7 @@
                 <h2>Add New Booking</h2>
                 @csrf
                 <select name="bookingStatus" class="display-none" required>
-                    <option value="Pending" selected></option>
+                    <option value="Approved" selected></option>
                 </select>
                 <select name="status" class="display-none" required>
                     <option value="Unpaid" selected></option>

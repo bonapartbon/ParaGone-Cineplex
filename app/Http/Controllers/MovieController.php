@@ -86,14 +86,14 @@ class MovieController extends Controller
     // Show movies to Showing Homepage
     public function display()
     {
-        $data = Movie::latest()->get();
+        $data = Movie::orderBy('id','desc')->get();
         return view('layouts.homepage',['movies'=>$data]);
     }
 
     // Show movies to Upcoming Homepage
     public function displayUp()
     {
-        $data = Movie::latest()->get();
+        $data = Movie::orderBy('id','desc')->get();
         return view('layouts.upcoming',['movies'=>$data]);
     }
 
@@ -152,7 +152,7 @@ class MovieController extends Controller
             return redirect()->route('movies.index')
             ->with('success', 'Movie Deleted Successfully.');
         }else {
-            return redirect()->route('upcomings.index')
+            return redirect()->route('movies.upcoming')
             ->with('success', 'Movie Deleted Successfully.');
         }
     }
