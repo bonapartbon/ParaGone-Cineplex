@@ -34,7 +34,7 @@
                 @foreach ($movies as $movie)
                     @if ($movie->movieCurrent == "upcoming")
                     <div class="item vhny-grid">
-                    <a href="{{ secure_route('booking.show', $movie->id) }}">
+                    <a href="{{ route('booking.show', $movie->id) }}">
                         <div class="box16">
                                 <figure>
                                     <img class="img-fluid" src="img/{{ $movie->movieImg }}" alt="">
