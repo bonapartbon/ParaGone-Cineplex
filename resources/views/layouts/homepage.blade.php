@@ -37,7 +37,7 @@
                         <a href="{{ route('booking.show', $movie->id) }}">
                             <div class="box16">
                                 <figure>
-                                    <img class="img-fluid" src="img/{{ $movie->movieImg }}" alt="">
+                                    <img class="img-fluid" src="{{ $movie->movieImg }}" alt="">
                                 </figure>
                                 <div class="box-content">
                                     <h3 class="title">{{ $movie->movieTitle }}</h3>

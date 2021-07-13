@@ -49,7 +49,7 @@
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Movie Image</label>
-          <input class="form-control" type="file" name="movieImg" required>
+          <input class="form-control" type="text" name="movieImg" required>
         </div>
         <div class="col-4">
           <button type="submit" class="btn btn-dark btn-lg">Add</button>

@@ -18,7 +18,7 @@ class MoviesSeeder extends Seeder
 
         $movies = [
             [
-                'movieImg' => 'blackwidow.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/30/6b/306b96c9c52b891cffda94af67c617ee/306b96c9c52b891cffda94af67c617ee.jpg',
                 'movieTitle' => "Black Widow",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Drama, Thriller, Action, Adventure',
@@ -30,7 +30,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/Fp9pNPdNwjI",
             ],
             [
-                'movieImg' => 'conjuring.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/69/da/69daeeaabc72389010331464e8cda51e/69daeeaabc72389010331464e8cda51e.jpg',
                 'movieTitle' => 'The Conjuring: The Devil Made Me Do It',
                 'movieCurrent' => 'upcoming',
                 'movieGenre' => 'Thriller, Mystery, Horror',
@@ -42,7 +42,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/h9Q4zZS2v1k",
             ],
             [
-                'movieImg' => 'mortal-kombat.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/29/0e/290e230d1fb3a7f54fa3793694fc1de6/290e230d1fb3a7f54fa3793694fc1de6.jpg',
                 'movieTitle' => 'Mortal Kombat',
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Thriller, Sci-Fi, Adventure, Action, Fantasy',
@@ -54,7 +54,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://youtube.com/embed/QJHY4ggYCk4",
             ],
             [
-                'movieImg' => 'cruella.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/13/8f/138f5c660b1fe4699b81284e636a9bbb/138f5c660b1fe4699b81284e636a9bbb.jpg',
                 'movieTitle' => 'Cruella',
                 'movieCurrent' => 'upcoming',
                 'movieGenre' => 'Comedy, Crime',
@@ -66,7 +66,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/gmRKv7n2If8",
             ],
             [
-                'movieImg' => 'f9.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/d0/ec/d0ec7ef079bd599580f21ed88b81eff3/d0ec7ef079bd599580f21ed88b81eff3.jpg',
                 'movieTitle' => 'F9 (Fast & Furious 9)',
                 'movieCurrent' => 'upcoming',
                 'movieGenre' => 'Thriller, Adventure, Action, Crime',
@@ -78,7 +78,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/fEE4RO-_jug",
             ],
             [
-                'movieImg' => 'edgeoftheworld.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/e0/8b/e08b2ec5e7744801c6d30ec52649d9b1/e08b2ec5e7744801c6d30ec52649d9b1.jpg',
                 'movieTitle' => 'Edge of the World',
                 'movieCurrent' => 'upcoming',
                 'movieGenre' => 'Drama, Adventure',
@@ -90,7 +90,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/ycgW26bzjq0",
             ],
             [
-                'movieImg' => 'flashback.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/2b/f1/2bf17ca971ca38f02ae132706249ced7/2bf17ca971ca38f02ae132706249ced7.jpg',
                 'movieTitle' => 'Flashback',
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Drama, Thriller',
@@ -102,7 +102,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/JMvJtpz4Bbk",
             ],
             [
-                'movieImg' => 'Without Remorse.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/3a/3f/3a3f01aa34f423c47ae504c9865a08f0/3a3f01aa34f423c47ae504c9865a08f0.jpg',
                 'movieTitle' => "Tom Clancy's Without Remorse",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Thriller, Adventure, Action, War',
@@ -114,7 +114,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/e-rw2cxFVLg",
             ],
             [
-                'movieImg' => 'loki.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/09/18/09181cd4682cb40a50bc539d4ef25379/09181cd4682cb40a50bc539d4ef25379.jpg',
                 'movieTitle' => "Loki",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Sci-Fi, Adventure, Action, Fantasy',
@@ -126,7 +126,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/nW948Va-l10",
             ],
             [
-                'movieImg' => 'rainfall.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/19/a0/19a0151c6d89f82c3ec5adb1d8d5100e/19a0151c6d89f82c3ec5adb1d8d5100e.jpg',
                 'movieTitle' => "Occupation: Rainfall",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Action',
@@ -138,7 +138,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/Os0gnI19So8",
             ],
             [
-                'movieImg' => 'thewomaninthewindow.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/95/8b/958bed872e34bce798c05f7d4a566eeb/958bed872e34bce798c05f7d4a566eeb.jpg',
                 'movieTitle' => "The Woman in the Window",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Drama, Thriller, Crime, Mystery',
@@ -150,7 +150,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/J0hTmzISOlQ",
             ],
             [
-                'movieImg' => 'lupin.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/24/0a/240ad283500bc0201e72c3d725fae9e6/240ad283500bc0201e72c3d725fae9e6.jpg',
                 'movieTitle' => "Lupin",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Drama, Action, Crime, Mystery',
@@ -162,7 +162,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/ga0iTWXCGa0",
             ],
             [
-                'movieImg' => 'endgame.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/d5/c9/d5c931df6080a426ed559d24896d5349/d5c931df6080a426ed559d24896d5349.jpg',
                 'movieTitle' => "Avengers: Endgame",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Sci-Fi, Adventure, Action, Fantasy',
@@ -174,7 +174,7 @@ class MoviesSeeder extends Seeder
                 'movieTrailer' => "https://www.youtube.com/embed/TcMBFSGVi1c",
             ],
             [
-                'movieImg' => 'lucifer.jpg',
+                'movieImg' => 'https://img.tinyzonetv.to/xxrz/250x400/202/9e/c8/9ec8a5a735a12e081797af3b5a44d71c/9ec8a5a735a12e081797af3b5a44d71c.jpg',
                 'movieTitle' => "Lucifer",
                 'movieCurrent' => 'showing',
                 'movieGenre' => 'Drama, Crime, Fantasy',

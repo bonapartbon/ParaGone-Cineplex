@@ -51,7 +51,7 @@
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Movie Image</label>
-          <input class="form-control" type="file" name="movieImg" value="{{ $movie->movieImg }}" required >
+          <input class="form-control" type="text" name="movieImg" value="{{ $movie->movieImg }}" required >
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-dark btn-lg">Confirm</button>
