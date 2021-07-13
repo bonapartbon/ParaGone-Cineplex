@@ -4,7 +4,7 @@
 <div class="container-fluid px-4">
     <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
         <div class="card-body ">
-            <form class="row g-3 mx-2" action="{{ route('bookings.index') }}" method="POST">
+            <form class="row g-3 mx-2" action="{{ secure_route('bookings.index') }}" method="POST">
                 <h2>Add New Booking</h2>
                 @csrf
                 <select name="bookingStatus" class="display-none" required>

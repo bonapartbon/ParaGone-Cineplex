@@ -43,7 +43,7 @@
                             <td>{{ $contact->subject }}</td>
                             <td>{{ $contact->message }}</td>
                             <td>
-                                <form action="{{ route('contact.destroy', $contact->id) }}" method="POST">
+                                <form action="{{ secure_route('contact.destroy', $contact->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger ">Delete</button>

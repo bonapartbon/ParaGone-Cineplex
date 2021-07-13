@@ -39,7 +39,7 @@
                             <p>{{ $message }}</p>
                         </div>
                         @endif
-                        <form action="{{url('contact')}}" method="post" class="formhny-sec">
+                        <form action="{{secure_url('contact')}}" method="post" class="formhny-sec">
                             @csrf
                             <div class="form-grids">
                                 <div class="form-input">

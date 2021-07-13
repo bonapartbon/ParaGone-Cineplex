@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="{{asset('img/paragone-favicon.png')}}">
     <title>ParaGone Cineplex | Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="{{ asset('admin-css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('admin-css/styles.css') }}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -35,9 +35,9 @@
 
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <li><a class="dropdown-item" href="{{ secure_route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ secure_route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
 
@@ -51,7 +51,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Admin Control Panel</div>
-                        <a class="nav-link" href="{{route('admin.home')}}">
+                        <a class="nav-link" href="{{secure_route('admin.home')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -70,11 +70,11 @@
                                 </a>
                                 <div class="collapse" id="collapseMoviesTable" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="{{url('admin/movies')}}">Showing Movies</a>
-                                        <a class="nav-link" href="{{ url('admin/upcomings') }}">Upcoming Movies</a>
+                                        <a class="nav-link" href="{{secure_url('admin/movies')}}">Showing Movies</a>
+                                        <a class="nav-link" href="{{ secure_url('admin/upcomings') }}">Upcoming Movies</a>
                                     </nav>
                                 </div>
-                                <a class="nav-link" href="{{ route('movies.create') }}">Add New Movie</a>
+                                <a class="nav-link" href="{{ secure_route('movies.create') }}">Add New Movie</a>
                             </nav>
                         </div>
 
@@ -85,15 +85,15 @@
                         </a>
                         <div class="collapse" id="collapseBooking" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{url('admin/bookings')}}">All Bookings</a>
-                                <a class="nav-link" href="{{ route('bookings.create') }}">Add New Booking</a>
+                                <a class="nav-link" href="{{secure_url('admin/bookings')}}">All Bookings</a>
+                                <a class="nav-link" href="{{ secure_route('bookings.create') }}">Add New Booking</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="{{url('admin/users')}}">
+                        <a class="nav-link" href="{{secure_url('admin/users')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Users List
                         </a>
-                        <a class="nav-link" href="{{url('admin/contact')}}">
+                        <a class="nav-link" href="{{secure_url('admin/contact')}}">
                             <div class="sb-nav-link-icon"><i class="fa fa-id-card"></i></div>
                             Contact List
                         </a>
@@ -124,12 +124,12 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('admin-js/scripts.js') }}"></script>
+    <script src="{{ secure_asset('admin-js/scripts.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('admin-assets/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('admin-assets/demo/chart-bar-demo.js') }}"></script>
+    <script src="{{ secure_asset('admin-assets/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ secure_asset('admin-assets/demo/chart-bar-demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="{{ asset('admin-js/datatables-simple-demo.js') }}"></script>
+    <script src="{{ secure_asset('admin-js/datatables-simple-demo.js') }}"></script>
 </body>
 
 </html>

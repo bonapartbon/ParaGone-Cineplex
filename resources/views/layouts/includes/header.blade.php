@@ -25,24 +25,24 @@
                         <a class="nav-link " href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ url('upcoming') }}">Upcoming</a>
+                        <a class="nav-link " href="{{ secure_url('upcoming') }}">Upcoming</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ url('about-us') }}">About Us</a>
+                        <a class="nav-link " href="{{ secure_url('about-us') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ url('contact') }}">Contact</a>
+                        <a class="nav-link " href="{{ secure_url('contact') }}">Contact</a>
                     </li>
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ secure_route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ secure_route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -55,20 +55,20 @@
                             </a>
                             <div class="dropdown-menu">
                                 @if (auth()->user()->is_admin == 1)
-                                    <a class="dropdown-item" href="{{ url('admin/dashboard') }}">Admin Dashboard</a>
+                                    <a class="dropdown-item" href="{{ secure_url('admin/dashboard') }}">Admin Dashboard</a>
                                 @endif
                                 @if (auth()->user()->is_admin == 0)
-                                    <a class="dropdown-item " href="{{ url('ticket') }}">My Ticket
+                                    <a class="dropdown-item " href="{{ secure_url('ticket') }}">My Ticket
                                     </a>
                                 @endif
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item" href="{{ secure_route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
                             </div>
                         </li>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ secure_route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                 </div>

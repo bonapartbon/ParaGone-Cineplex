@@ -12,7 +12,7 @@
                     {{ session('status') }}
                 </div>
                 @endif
-                <form method="POST" action="{{ route('password.email') }}">
+                <form method="POST" action="{{ secure_route('password.email') }}">
                     @csrf
                     <label>E-Mail Address</label>
                     <div class="input-group">

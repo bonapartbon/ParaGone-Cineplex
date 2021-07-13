@@ -46,8 +46,8 @@
                     @endif
                     <input type="hidden" name="quantity" value="{{ $bookings->bookingTicket }}">
                     <input type="hidden" name="currency_code" value="USD">
-                    <input type="hidden" name="return" value="{{ url('payment/success') }}">
-                    <input type="hidden" name="cancel_return" value="{{ url('payment/fail') }}">
+                    <input type="hidden" name="return" value="{{ secure_url('payment/success') }}">
+                    <input type="hidden" name="cancel_return" value="{{ secure_url('payment/fail') }}">
                     <div class="text-center mt-3">
                         <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
                     </div>
@@ -61,13 +61,13 @@
         <p>© COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <script src="{{ asset('template-js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ secure_asset('template-js/jquery-3.3.1.min.js') }}"></script>
 
     <!-- //responsive tabs -->
     <!--/theme-change-->
-    <script src="{{ asset('template-js/theme-change.js') }}"></script>
+    <script src="{{ secure_asset('template-js/theme-change.js') }}"></script>
     <!-- //theme-change-->
-    <script src="{{ asset('template-js/owl.carousel.js') }}"></script>
+    <script src="{{ secure_asset('template-js/owl.carousel.js') }}"></script>
     <!-- script for banner slider-->
 
     <!--/MENU-JS-->
@@ -99,7 +99,7 @@
     </script>
     <!--//MENU-JS-->
 
-    <script src="{{ asset('template-js/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('template-js/bootstrap.min.js') }}"></script>
 
 </body>
 

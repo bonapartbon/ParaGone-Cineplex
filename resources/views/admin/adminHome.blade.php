@@ -14,7 +14,7 @@
                             <div class="card-body">Movies: <b class="float-end">{{count($movie)}}</b></div>
 
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="{{url('admin/movies')}}">View Details</a>
+                                <a class="small text-white stretched-link" href="{{secure_url('admin/movies')}}">View Details</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                         <div class="card bg-warning text-white mb-4">
                             <div class="card-body">Bookings: <b class="float-end">{{count($booking)}} </b></div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="{{url('admin/bookings')}}">View Details</a>
+                                <a class="small text-white stretched-link" href="{{secure_url('admin/bookings')}}">View Details</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="card bg-success text-white mb-4">
                             <div class="card-body">Users: <b class="float-end">{{count($user)}} </b> </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="{{url('admin/users')}}">View Details</a>
+                                <a class="small text-white stretched-link" href="{{secure_url('admin/users')}}">View Details</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <b class="float-end"> ${{ number_format(\App\Models\Booking::where('status', 'Paid')->sum('total'),2) }} </b>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="{{url('admin/bookings')}}">View Details</a>
+                                <a class="small text-white stretched-link" href="{{secure_url('admin/bookings')}}">View Details</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@
 <div class="container-fluid px-4">
   <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
     <div class="card-body">
-      <form class="row g-3 mx-2" action="{{ route('movies.store') }}" method="POST">
+      <form class="row g-3 mx-2" action="{{ secure_route('movies.store') }}" method="POST">
         <h2>Add New Movie</h2>
         @csrf
         <div class="col-md-4">

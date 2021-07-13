@@ -84,13 +84,13 @@
         <p>© COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.</p>
     </footer>
 
-    <script src="{{ asset('template-js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ secure_asset('template-js/jquery-3.3.1.min.js') }}"></script>
 
     <!-- //responsive tabs -->
     <!--/theme-change-->
-    <script src="{{ asset('template-js/theme-change.js') }}"></script>
+    <script src="{{ secure_asset('template-js/theme-change.js') }}"></script>
     <!-- //theme-change-->
-    <script src="{{ asset('template-js/owl.carousel.js') }}"></script>
+    <script src="{{ secure_asset('template-js/owl.carousel.js') }}"></script>
     <!-- script for banner slider-->
 
     <!--/MENU-JS-->
@@ -122,7 +122,7 @@
     </script>
     <!--//MENU-JS-->
 
-    <script src="{{ asset('template-js/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('template-js/bootstrap.min.js') }}"></script>
 
 </body>
 
