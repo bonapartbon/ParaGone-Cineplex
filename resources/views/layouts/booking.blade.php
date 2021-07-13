@@ -128,7 +128,7 @@
                                     <div class="mt-3">
                                         <h3 class="text-center align-center pl-2">Total: $<span id="bookingTotal">0</span></h3>
                                     </div>
-                                    <button class="btn read-button col-12 mt-3" type="submit" formaction="{{secure_route('booking.store')}}">Book Now!</button>
+                                    <button class="btn read-button col-12 mt-3" type="submit" formaction="{{route('booking.store')}}">Book Now!</button>
                                     <hr class="mb-2 mt-4">
                                     <p class="text-center">or Buy with PayPal</p>
                                     <button class="btn read-button col-12 mt-2" type="submit" formaction="{{secure_url('/payment')}}">Buy Now!</button>

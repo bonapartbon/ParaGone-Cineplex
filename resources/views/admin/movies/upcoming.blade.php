@@ -18,7 +18,7 @@
         <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
             <div class="card-header d-flex justify-content-between">
                 <h2 class="font-weight-bold">UpComing Movies</h2>
-                <a type="button" href="{{ secure_route('movies.create') }}" class="btn btn-dark my-1">+ Add New Movie</a>
+                <a type="button" href="{{ route('movies.create') }}" class="btn btn-dark my-1">+ Add New Movie</a>
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-striped table-hover">
@@ -45,10 +45,10 @@
                             <td>{{ $movie->movieGenre }}</td>
                             <td>{{ $movie->movieDuration }}</td>
                             <td>{{ $movie->movieRelDate }}</td>
-                            <td> <a type="button" href="{{ secure_route('movies.edit', $movie->id) }}" class="btn btn-dark ">Edit</a>
+                            <td> <a type="button" href="{{ route('movies.edit', $movie->id) }}" class="btn btn-dark ">Edit</a>
                             </td>
                             <td>
-                                <form action="{{ secure_route('movies.destroy', $movie->id) }}" method="POST">
+                                <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger ">Delete</button>

@@ -4,7 +4,7 @@
 <div class="container-fluid px-4">
     <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
         <div class="card-body">
-            <form class="row g-3 mx-2" action="{{ secure_route('users.update', $user->id) }}" method="POST">
+            <form class="row g-3 mx-2" action="{{ route('users.update', $user->id) }}" method="POST">
                 <h1>Edit Existing User</h1>
                 @csrf
                 @method('PUT')

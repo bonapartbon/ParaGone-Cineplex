@@ -35,9 +35,9 @@
 
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ secure_route('logout') }}" onclick="event.preventDefault();
+                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
-                    <form id="logout-form" action="{{ secure_route('logout') }}" method="POST" class="d-none">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
 
@@ -51,7 +51,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Admin Control Panel</div>
-                        <a class="nav-link" href="{{secure_route('admin.home')}}">
+                        <a class="nav-link" href="{{route('admin.home')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -74,7 +74,7 @@
                                         <a class="nav-link" href="{{ secure_url('admin/upcomings') }}">Upcoming Movies</a>
                                     </nav>
                                 </div>
-                                <a class="nav-link" href="{{ secure_route('movies.create') }}">Add New Movie</a>
+                                <a class="nav-link" href="{{ route('movies.create') }}">Add New Movie</a>
                             </nav>
                         </div>
 
@@ -86,7 +86,7 @@
                         <div class="collapse" id="collapseBooking" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{secure_url('admin/bookings')}}">All Bookings</a>
-                                <a class="nav-link" href="{{ secure_route('bookings.create') }}">Add New Booking</a>
+                                <a class="nav-link" href="{{ route('bookings.create') }}">Add New Booking</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="{{secure_url('admin/users')}}">

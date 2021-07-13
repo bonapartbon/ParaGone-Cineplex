@@ -8,7 +8,7 @@
 <b>Tickets: {{$details['bookingTicket']}}</b><br>
 <b>Total Price: ${{ number_format($details['total'],2) }}</b><br>
 
-@component('mail::button', ['url' => 'http://paragone-cineplex.herokuapp.com/admin/bookings'])
+@component('mail::button', ['url' => 'https://paragone-cineplex.herokuapp.com/admin/bookings'])
 View Booking List
 @endcomponent
 

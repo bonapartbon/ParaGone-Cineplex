@@ -17,7 +17,7 @@
             <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
                 <div class="card-header d-flex justify-content-between">
                     <h2 class="font-weight-bold">All Bookings</h2>
-                    <a type="button" href="{{ secure_route('bookings.create') }}" class="btn btn-dark my-1">+ Add New booking</a>
+                    <a type="button" href="{{ route('bookings.create') }}" class="btn btn-dark my-1">+ Add New booking</a>
                 </div>
 
                 <div class="card-body table-responsive">
@@ -54,10 +54,10 @@
                                     <td>{{ $booking->bookingPNumber }}</td>
                                     <th>{{ $booking->bookingTicket }}</th>
                                     <th>{{ $booking->total }}</th>
-                                    <td><a type="button" href="{{ secure_route('bookings.edit', $booking->id) }}"
+                                    <td><a type="button" href="{{ route('bookings.edit', $booking->id) }}"
                                             class="btn btn-dark ">Edit</a></td>
                                     <td>
-                                        <form action="{{ secure_route('bookings.destroy', $booking->id) }}" method="POST">
+                                        <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger ">Delete</button>
@@ -65,7 +65,7 @@
                                     </td>
                                     @if ($booking->bookingStatus == 'Pending')
                                         <td class="mr-5">
-                                            <form action="{{ secure_route('bookings.update', $booking->id) }}" method="POST">
+                                            <form action="{{ route('bookings.update', $booking->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <select name="bookingStatus" class="display-none" required>
@@ -81,7 +81,7 @@
                                     @endif
                                     @if ($booking->status == 'Unpaid')
                                         <td class="mr-5">
-                                            <form action="{{ secure_route('bookings.update', $booking->id) }}" method="POST">
+                                            <form action="{{ route('bookings.update', $booking->id) }}" method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <select name="status" class="display-none" required>

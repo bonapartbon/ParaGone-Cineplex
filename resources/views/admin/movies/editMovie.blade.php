@@ -5,7 +5,7 @@
   <div class="card mb-4 mt-4 shadow p-2 bg-body rounded">
     <div class="card-body">
 
-      <form class="row g-3 mx-2" action="{{ secure_route('movies.update', $movie->id) }}" method="POST">
+      <form class="row g-3 mx-2" action="{{ route('movies.update', $movie->id) }}" method="POST">
         <h1>Edit Existing Movie</h1>
         @csrf
         @method('PUT')

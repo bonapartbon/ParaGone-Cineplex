@@ -45,10 +45,10 @@
                                 User
                                 @endif
                             </td>
-                            <td> <a type="button" href="{{ secure_route('users.edit', $user->id) }}" class="btn btn-dark ">Edit</a>
+                            <td> <a type="button" href="{{ route('users.edit', $user->id) }}" class="btn btn-dark ">Edit</a>
                             </td>
                             <td>
-                                <form action="{{ secure_route('users.destroy', $user->id) }}" method="POST">
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger ">Delete</button>
