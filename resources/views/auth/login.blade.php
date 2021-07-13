@@ -13,7 +13,7 @@
                     <p>{{ $message }}</p>
                 </div>
                 @endif
-                <form method="POST" action="{{ secure_route('login') }}">
+                <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <label>Email</label>
                     <div class="input-group">
@@ -27,11 +27,11 @@
                         <input class="" type="checkbox" >
 
                         
-                        <a class="forgot" href="{{ secure_route('password.request') }}">Forgot password?</a>
+                        <a class="forgot" href="{{ route('password.request') }}">Forgot password?</a>
                     </div>
                     <button class="btn read-button btn-login" type="submit">Login</button>
                 </form>
-                <p class="account1">Dont have an account yet? <a href="{{ secure_route('register') }}">Get it now</a></p>
+                <p class="account1">Dont have an account yet? <a href="{{ route('register') }}">Get it now</a></p>
             </div>
         </div>
     </div>
