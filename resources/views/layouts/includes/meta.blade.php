@@ -1,7 +1,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="icon" type="image/png" href="{{secure_('img/paragone-favicon.png')}}">
+<link rel="icon" type="image/png" href="{{('img/paragone-favicon.png')}}">
 <!-- Template CSS -->
 <link rel="stylesheet" href="{{secure_asset('template-css/style-starter.css')}}">
 <!-- Template CSS -->

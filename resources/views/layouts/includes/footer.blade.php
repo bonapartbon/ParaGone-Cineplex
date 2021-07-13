@@ -1,17 +1,17 @@
 <footer class="copyright ">
     <p>© COPYRIGHT RESERVED © 2021 PARAGONE CINEPLEX. ALL RIGHTS RESERVED.</p>
 </footer>
-<script src="{{asset('template-js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{secure_asset('template-js/jquery-3.3.1.min.js')}}"></script>
 <!-- stats -->
-<script src="{{asset('template-js/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('template-js/jquery.countup.js')}}"></script>
+<script src="{{secure_asset('template-js/jquery.waypoints.min.js')}}"></script>
+<script src="{{secure_asset('template-js/jquery.countup.js')}}"></script>
 <script>
     $('.counter').countUp();
 </script>
 <!-- //stats -->
 <!-- responsive tabs -->
-<script src="{{asset('template-js/jquery-1.9.1.min.js')}}"></script>
-<script src="{{asset('template-js/easyResponsiveTabs.js')}}"></script>
+<script src="{{secure_asset('template-js/jquery-1.9.1.min.js')}}"></script>
+<script src="{{secure_asset('template-js/easyResponsiveTabs.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         //Horizontal Tab
@@ -32,9 +32,9 @@
 </script>
 <!-- //responsive tabs -->
 <!--/theme-change-->
-<script src="{{asset('template-js/theme-change.js')}}"></script>
+<script src="{{secure_asset('template-js/theme-change.js')}}"></script>
 <!-- //theme-change-->
-<script src="{{asset('template-js/owl.carousel.js')}}"></script>
+<script src="{{secure_asset('template-js/owl.carousel.js')}}"></script>
 <!-- script for banner slider-->
 <script>
     $(document).ready(function() {
@@ -204,7 +204,7 @@
 
 <!-- script for owlcarousel -->
 <!-- Template JavaScript -->
-<script src="{{asset('template-js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{secure_asset('template-js/jquery.magnific-popup.min.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('.popup-with-zoom-anim').magnificPopup({
@@ -280,4 +280,4 @@
 </script>
 <!--//MENU-JS-->
 
-<script src="{{asset('template-js/bootstrap.min.js')}}"></script>
+<script src="{{secure_asset('template-js/bootstrap.min.js')}}"></script>
