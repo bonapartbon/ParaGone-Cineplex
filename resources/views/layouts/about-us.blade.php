@@ -14,7 +14,7 @@
     <div class="w3l-breadcrumbs">
         <nav id="breadcrumbs" class="breadcrumbs">
             <div class="container page-wrapper">
-                <a href="/">Home</a> » <span class="breadcrumb_last" aria-current="page">About</span>
+                <a href="/">Home</a> Â» <span class="breadcrumb_last" aria-current="page">About</span>
             </div>
         </nav>
     </div>
@@ -27,13 +27,8 @@
                     <img class="img-fluid" src="{{asset('template-images/banner1.jpg')}}">
                 </div>
                 <div class="col-lg-6 ab-left pl-lg-4 mt-lg-0 mt-5">
-                    <h3 class="hny-title">Great Entertainment</h3>
-                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam id quisquam ipsam
-                        molestiae ad eius accusantium? Nulla dolorem perferendis inventore! posuere cubilia Curae;
-                        Nunc non risus in justo convallis feugiat.</p>
-                    <div class="ready-more mt-4">
-                        <a href="#" class="btn read-button">Read More <span class="fa fa-angle-double-right ml-2" aria-hidden="true"></span></a>
-                    </div>
+                    <h3 class="hny-title">ParaGone Cineplex</h3>
+                    <p class="mt-3">Prem Cineplex (UC) (Cambodia) is a state-of-the-art cinema originating in South Korea under the Eugenetek Corporation Group, headquartered in Korea. Eugenetek has been recognized as an exclusive consulting and supply company for the installation of equipment for large-scale modern cinema enterprises since 1986.</p>
                 </div>
             </div>
 
@@ -41,8 +36,8 @@
                 <div class="stats_left">
                     <div class="counter_grid">
                         <div class="icon_info">
-                            <p class="counter">65</p>
-                            <h4>Movies</h4>
+                            <p class="counter">{{ \App\Models\Movie::where('movieCurrent', 'showing')->count('id') }}</p>
+                            <h4>Showing Movies</h4>
 
                         </div>
                     </div>
@@ -50,8 +45,8 @@
                 <div class="stats_left">
                     <div class="counter_grid">
                         <div class="icon_info">
-                            <p class="counter">165</p>
-                            <h4>Shows</h4>
+                            <p class="counter">{{ \App\Models\Movie::where('movieCurrent', 'upcoming')->count('id') }}</p>
+                            <h4>Upcoming Movies</h4>
 
                         </div>
                     </div>
@@ -59,8 +54,8 @@
                 <div class="stats_left">
                     <div class="counter_grid">
                         <div class="icon_info">
-                            <p class="counter">463</p>
-                            <h4>Members</h4>
+                            <p class="counter">{{ \App\Models\User::where('is_admin', '0')->count('id') }}</p>
+                            <h4>Users</h4>
 
                         </div>
                     </div>
@@ -68,9 +63,8 @@
                 <div class="stats_left">
                     <div class="counter_grid">
                         <div class="icon_info">
-                            <p class="counter">5063</p>
-                            <h4>Year of Use</h4>
-
+                            <p class="counter">2021</p>
+                            <h4>Established</h4>
                         </div>
                     </div>
                 </div>
