@@ -48,8 +48,8 @@
           <input type="text" name="movieDes" class="form-control" placeholder="Movie Description" required>
         </div>
         <div class="mb-3">
-          <label for="formFile" class="form-label">Movie Image</label>
-          <input class="form-control" type="text" name="movieImg" required>
+          <label for="formFile" class="form-label" >Movie Image</label>
+          <input class="form-control" type="text" name="movieImg" placeholder="Movie Image" required>
         </div>
         <div class="col-4">
           <button type="submit" class="btn btn-dark btn-lg">Add</button>
